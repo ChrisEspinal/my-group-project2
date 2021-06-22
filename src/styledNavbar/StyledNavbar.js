@@ -22,24 +22,27 @@ class StyledNavbar extends React.Component{
                   <Nav.Link>Home</Nav.Link>
                 </LinkContainer>
 
-                {/* <LinkContainer to="/about">
+                <LinkContainer to="/about">
                   <Nav.Link>Other Page</Nav.Link>
-                </LinkContainer> */}
+                </LinkContainer>
 
-                  {/* <NavDropdown title="See More" id="collasible-nav-dropdown">
+                  <NavDropdown title="See More" id="collasible-nav-dropdown">
                     <LinkContainer to="/">
-                      <NavDropdown.Item>Item1</NavDropdown.Item>
+                      <NavDropdown.Item>Hot Items</NavDropdown.Item>
                     </LinkContainer>
                     <LinkContainer to="/">
-                      <NavDropdown.Item>Item2</NavDropdown.Item>
+                      <NavDropdown.Item>Sale</NavDropdown.Item>
                     </LinkContainer>
-                  </NavDropdown> */}
+                  </NavDropdown>
 
               </Nav>
 
               <Nav>
+                <LinkContainer to="/register">
+                  <Nav.Link>Register</Nav.Link>
+                </LinkContainer>
                 <LinkContainer to="/signIn">
-                  <Nav.Link>SignIn</Nav.Link>
+                  <Nav.Link>Sign In</Nav.Link>
                 </LinkContainer>
               </Nav>
 

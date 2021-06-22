@@ -1,17 +1,19 @@
 import React, { useState } from "react";
-import './SignIn.css';
+import './Register.css';
 import { Jumbotron, Container } from 'react-bootstrap';
 import { Form, InputGroup } from 'react-bootstrap';
 import { Row, Col } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 
 const SignIn = () => {
+    const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [validated, setValidated] = useState(false);
 
     const handleSubmit = (e) => {
         // e.preventDefault();
+        setEmail("");
         setUsername("");
         setPassword("");
 
@@ -23,18 +25,18 @@ const SignIn = () => {
     
         setValidated(true);
 
-        alert(username + ', routing to home page!');
+        alert(username + ', you have registered successfully!');
     };
 
         return (
-            <div className="signIn-body">
+            <div className="register-body">
 
                 <div className="header">
                     <Row>
                      <Col sm={12}>
                          <Jumbotron fluid>
                                 <Container>
-                                    <h1 className="display-3">Welcome!</h1>
+                                    <h1 className="display-3">Let's Get Started!</h1>
                                 </Container>
                             </Jumbotron>
                         </Col>    
@@ -44,10 +46,25 @@ const SignIn = () => {
                 <div className="container-fluid formBody">
                     <Row>
                         <Col></Col>
-                        <Col sm={12} md={8}>  Sign In
+                        <Col sm={12} md={8}>  Please input the following:
 
                         <div className="inputFields">
                         <Form noValidate validated={validated} className="form" onSubmit={handleSubmit}>
+
+                        <Form.Row>
+                                <Form.Group as={Col} sm="12" controlId="validationCustom01">
+                                <Form.Control
+                                required
+                                type="email"
+                                className="email"
+                                placeholder="Email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                            <Form.Control.Feedback type="invalid">Please enter an email.</Form.Control.Feedback>
+                            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                            </Form.Group>
+                        </Form.Row>
 
                         <Form.Row>
                             <Form.Group as={Col} sm="12" controlId="validationCustomUsername">
