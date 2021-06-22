@@ -22,7 +22,7 @@ class StyledNavbar extends React.Component{
                   <Nav.Link>Home</Nav.Link>
                 </LinkContainer>
 
-                <LinkContainer to="/about">
+                <LinkContainer to="/otherPage">
                   <Nav.Link>Other Page</Nav.Link>
                 </LinkContainer>
 
