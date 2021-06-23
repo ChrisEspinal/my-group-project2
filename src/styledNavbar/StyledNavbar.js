@@ -22,8 +22,8 @@ class StyledNavbar extends React.Component{
                   <Nav.Link>Home</Nav.Link>
                 </LinkContainer>
 
-                <LinkContainer to="/otherPage">
-                  <Nav.Link>Other Page</Nav.Link>
+                <LinkContainer to="/shop">
+                  <Nav.Link>Shop</Nav.Link>
                 </LinkContainer>
 
                   <NavDropdown title="See More" id="collasible-nav-dropdown">
