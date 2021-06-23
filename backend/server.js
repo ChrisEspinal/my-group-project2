@@ -1,17 +1,13 @@
 let express = require('express');
-let {Sequelize} = require('sequelize');
-const cors = require('cors');
+let {Sequelize} = require('Sequelize');
+const cors =require('cors');
+let app =express();
 
 
-let app = express();
+app.use(cors())
 
-
-app.use(cors());
-
-// app.use(express.urlencoded({extended:true}));
 
 app.use(express.json()); 
-
 
 let server = app.listen(0, () => {
     console.log('Listening', server.address().port)
@@ -19,260 +15,198 @@ let server = app.listen(0, () => {
 
 var sequelize = new Sequelize('postgres://postgres:peekaboo@localhost:5432/postgres');
 
-let Student = sequelize.define('Student',{
-    id: {type: Sequelize.INTEGER,
-        primaryKey: true,
-        autoIncrement: true},
-    firstname: Sequelize.STRING,
-    lastname: Sequelize.STRING,
+// Define databases
+let DJ = sequelize.define('djs',{
+    name: Sequelize.STRING,
+    imgURL: Sequelize.STRING,
+    quantity: Sequelize.INTEGER,
+    description: Sequelize.STRING(1234),
+});
+
+DJ.sync()
+
+DJ.create(
+    {
+    name: "American DJ Focus Spot 5Z LED Light",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+},
+{
+    name: "American DJ Focus Spot 5Z LED Light",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+})
+// DJ.create({
+//     name: "American DJ Focus Spot 5Z LED Light",
+//     imgURL: null,
+//     quantity: 10,
+//     description: "Moving Light"
+// })
+// DJ.create({
+//     name: "American DJ Focus Spot 5Z LED Light",
+//     imgURL: null,
+//     quantity: 10,
+//     description: "Moving Light"
+// })
+// DJ.create({
+//     name: "American DJ Focus Spot 5Z LED Light",
+//     imgURL: null,
+//     quantity: 10,
+//     description: "Moving Light"
+// })
+// DJ.create({
+//     name: "American DJ Focus Spot 5Z LED Light",
+//     imgURL: null,
+//     quantity: 10,
+//     description: "Moving Light"
+// })
+// DJ.create({
+//     name: "American DJ Focus Spot 5Z LED Light",
+//     imgURL: null,
+//     quantity: 10,
+//     description: "Moving Light"
+// })
+// DJ.create({
+//     name: "American DJ Focus Spot 5Z LED Light",
+//     imgURL: null,
+//     quantity: 10,
+//     description: "Moving Light"
+// })
+// DJ.create({
+//     name: "American DJ Focus Spot 5Z LED Light",
+//     imgURL: null,
+//     quantity: 10,
+//     description: "Moving Light"
+// })
+// DJ.create({
+//     name: "American DJ Focus Spot 5Z LED Light",
+//     imgURL: null,
+//     quantity: 10,
+//     description: "Moving Light"
+// })
+// DJ.create({
+//     name: "American DJ Focus Spot 5Z LED Light",
+//     imgURL: null,
+//     quantity: 10,
+//     description: "Moving Light"
+// })
+// DJ.create({
+//     name: "American DJ Focus Spot 5Z LED Light",
+//     imgURL: null,
+//     quantity: 10,
+//     description: "Moving Light"
+// })
+
+
+let lighting = sequelize.define('lighting',{
+    name: Sequelize.STRING,
+    imgURL: Sequelize.STRING,
+    quantity: Sequelize.INTEGER,
+    description: Sequelize.STRING,
+});
+
+let sound = sequelize.define('sound',{
+    name: Sequelize.STRING,
+    imgURL: Sequelize.STRING,
+    quantity: Sequelize.INTEGER,
+    description: Sequelize.STRING,
+});
+
+let Users =sequelize.define('users',{
+    username: Sequelize.STRING,
     email: Sequelize.STRING,
-    school: Sequelize.STRING,
-    gpa: Sequelize.FLOAT
-});
-
-let Campus = sequelize.define('Campus',{
-    id: {type: Sequelize.INTEGER,
-        primaryKey: true,
-        autoIncrement: true},
-    campusname: {type: Sequelize.STRING},
-    imageurl: Sequelize.STRING,
-    address: Sequelize.STRING,
-    description: Sequelize.STRING
-});
-
-
-// try{
-//     sequelize.authenticate().then(console.log("The connection has been established."))
-// }catch(er){
-//     console.log("Some error", er);
-// }
-app.get('/Students', async function(request, response) {
-    // dStuent.findAll().then(students => res.json(students))
-
- 
-    let test =  await Student.findAll();
-
-    console.log(test);
-    //Student.findAll().then(function(rows) {
-
-     //   console.log(row);
-
-
-       // for(var i = 0; i < rows.length; i++) {
-       // var columnData = rows[i].dataValues;
-        //var name = columnData.firstname + " " + columnData.lastname;
-    //console.log(columnData );
-    //someData.append(columnData);
-        //}
-        //console.log(someData);  
-    //});
-    
-    response.json(test);
+    password: Sequelize.STRING,
 })
 
-app.get('/Campus', async function(request, response) {
-    // dStuent.findAll().then(students => res.json(students))
 
- 
-    let test2 =  await Campus.findAll();
+// Define functions for password verification
+// The first one verifies the password, is now working properly
+app.post('/signIn', async function(request,response){
+    console.log("Receiving info from Front End")
 
-    console.log(test2);
+    let userName = request.body.userName;
+    let passWord = request.body.passWord;
 
-    response.json(test2);
+    Users.sync()
+
+    let test = await Users.findOne({
+        where:{
+            username: userName,
+            password: passWord
+        }
+}).then(function(user){
+    if(!user){
+        response.send(false);
+    }else{
+        response.send(true);
+    }
+})
 })
 
-app.get('Campuses/:id', async(request,response) => {
-    await Campus.findById(request.params.id)
-    .then(campusInfo => response.json(campusInfo))
-})
+// The second one takes in a new login username/password, 
+//is also working properly
+app.post('/register', function(request, response){
 
-app.get('Students/:id', async(request,response) => {
-    await Student.findById(request.params.id)
-    .then(studentInfo => response.json(studentInfo))
-    .catch(next)
-})
-app.post('/Students', function(request, response){
-
-    console.log(request.body);
-
-    let firstName = request.body.firstName;
-    let lastName = request.body.lastName;
+    console.log("We are getting info from Front End")
+    let userName = request.body.userName;
     let email = request.body.email;
-    let school= request.body.school;
-    let gpa = request.body.gpa;
+    let passWord = request.body.passWord;
 
+    console.log(userName);
 
-    //console.log(request);
-    console.log("We are getting information from the front end");
+    console.log("Adding user")
+    // console.log(request.body[0].userName);
 
-    // let Student = sequelize.define('Student',{
-    //     firstname: Sequelize.STRING,
-    //     lastname: Sequelize.STRING,
-    //     email: Sequelize.STRING,
-    //     school: Sequelize.STRING,
-    //     gpa: Sequelize.FLOAT
-    // });
+    Users.sync()
 
-    Student.sync().then(function(){
-        console.log("The student table is ready to be used");
-    })
-
-
-    Student.findOne({
+    Users.findOne({
         where:{
-            email: email 
+            username: userName
         }
-    }).then(function(student){
-        if(!student){
-            console.log("false");
-
-            Student.create({
-                firstname: firstName,
-                lastname: lastName,
+    }).then(function(user){
+        if(!user){
+            Users.create({
+                username: userName,
                 email: email,
-                school: school,
-                gpa: gpa
-            });
-
+                password: passWord
+            })
         }else{
-            console.log("student");
-            // Notify the student that this user already exists in the table
+            console.log("User exists")
         }
-
-    });
-
-    response.send("The form has been received");
-    
-
-});
-
-app.post('/Campus', function(request, response){
-
-    console.log(request.body);
-
-    let campusName = request.body.campusName;
-    let imageURL = request.body.imageURL;
-    let address = request.body.address;
-    let description= request.body.description;
-
-
-    //console.log(request);
-    console.log("We are getting information from the front end");
-
-    // let Student = sequelize.define('Student',{
-    //     firstname: Sequelize.STRING,
-    //     lastname: Sequelize.STRING,
-    //     email: Sequelize.STRING,
-    //     school: Sequelize.STRING,
-    //     gpa: Sequelize.FLOAT
-    // });
-
-    Campus.sync().then(function(){
-        console.log("The campus table is ready to be used");
     })
+   
+})
 
 
-    Campus.findOne({
-        where:{
-            address: address 
-        }
-    }).then(function(campus){
-        if(!campus){
-            console.log("false");
-
-            Campus.create({
-                campusname: campusName,
-                imageurl: imageURL,
-                address: address,
-                description: description,
-            });
-
-        }else{
-            console.log("campus");
-            // Notify the student that this user already exists in the table
-        }
-
-    });
-
-    response.send("The campus form has been received");
-    
-
+// update quantity available for selling based on user clicks
+// Might be changed becuasse of redux
+app.put('/deejay', async function(request,response){
+    DJ.update({
+        quantity: request.body.quantity,
+    }, {where:{
+            name: request.body.name
+    }
+})
 });
-
-app.delete('/Campus', async function(request, response){
-
-    let test2 =  Campus.destroy({
-        where: {
-            id: request.body.id
-        }
-    });
-
-    console.log(test2);
-
-    response.json(test2);
-
+app.put('/lighting', async function(request,response){
+    lighting.update({
+        quantity: request.body.quantity,
+    }, {where:{
+            name: request.body.name
+    }
+})
 });
-
-app.delete('/Students', async function(request, response){
-
-    let test2 =  Student.destroy({
-        where: {
-            id: request.body.id
-        }
-    });
-
-    console.log(test2);
-
-    response.json(test2);
-
+app.put('/sound', async function(request,response){
+    sound.update({
+        quantity: request.body.quantity,
+    }, {where:{
+            name: request.body.name
+    }
+})
 });
-
-app.put('/Students', async function(request, response){
-
-    let test3 =  Student.update({
-        firstname: request.body.firstname,
-        lastname: request.body.lastName,
-        email: request.body.email,
-        school: request.body.school,
-        gpa: request.body.gpa
-    },
-        {where: {
-            id: request.body.id
-        }
-    });
-
-    console.log(test3);
-
-    response.json(test3);
-
-});
-
-
-
-app.put('/Campus', async function(request, response){
-
-    let test4 =  Campus.update({
-        campusname: request.body.campusname,
-        imageurl: request.body.imageurl,
-        address: request.body.address,
-        description: request.body.description
-    },
-        {where: {
-            id: request.body.id
-        }
-    });
-
-    console.log(test4);
-
-    response.json(test4);
-
-});
-
-
-
-// find students who go to a campus
-// find campus that current student goes to
 
 console.log("Test");
 
-app.listen(3002);
+app.listen(3002)

@@ -11,19 +11,38 @@ const SignIn = () => {
     const [validated, setValidated] = useState(false);
 
     const handleSubmit = (e) => {
-        // e.preventDefault();
-        setUsername("");
-        setPassword("");
+        e.preventDefault();
+        // setUsername("");
+        // setPassword("");
 
-        const form = e.currentTarget;
-        if (form.checkValidity() === false) {
-          e.preventDefault();
-          e.stopPropagation();
-        }
+
+        let values = {
+            userName: username,
+            passWord:password};
+
+        (async () => {
+            const rawResponse = await fetch('/signIn', {
+                method: 'POST',
+                headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(values)
+            });
+            const content = await rawResponse.json();
+            console.log("This is the content");
+            console.log(content);
+            })();
+
+        // const form = e.currentTarget;
+        // if (form.checkValidity() === false) {
+        //   e.preventDefault();
+        //   e.stopPropagation();
+        // }
     
-        setValidated(true);
+        // setValidated(true);
 
-        alert(username + ', routing to home page!');
+        // alert(username + ', routing to home page!');
     };
 
         return (

@@ -12,16 +12,35 @@ const SignIn = () => {
     const [validated, setValidated] = useState(false);
 
     const handleSubmit = (e) => {
-        // e.preventDefault();
-        setEmail("");
-        setUsername("");
-        setPassword("");
+        e.preventDefault();
+        // setEmail("");
+        // setUsername("");
+        // setPassword("");
+
+        let values = {
+            userName: username,
+            email: email,
+            passWord:password};
+
+        (async () => {
+            const rawResponse = await fetch('/register', {
+              method: 'POST',
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(values)
+            });
+            const content = await rawResponse.json();
+            console.log("This is the content");
+            console.log(content);
+          })();
 
         const form = e.currentTarget;
-        if (form.checkValidity() === false) {
-          e.preventDefault();
-          e.stopPropagation();
-        }
+        // if (form.checkValidity() === false) {
+        //   e.preventDefault();
+        //   e.stopPropagation();
+        // }
     
         setValidated(true);
 
