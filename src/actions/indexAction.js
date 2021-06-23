@@ -9,3 +9,15 @@ export const logOut = () =>{
         type: "log-out"
     }
 }
+
+export const incCart = () =>{
+    return{
+        type: "addToCart"
+    }
+}
+
+export const decCart = () => {
+    return{
+        type: "removeFromCart"
+    }
+}
