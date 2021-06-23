@@ -4,11 +4,24 @@ import { Jumbotron, Container } from 'react-bootstrap';
 import { Form, InputGroup } from 'react-bootstrap';
 import { Row, Col } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
+import { logIn,logOut } from "../actions/indexAction";
+import {useSelector, useDispatch} from 'react-redux';
+import LoggedIn from "../reducers/loggedIn";
 
 const SignIn = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [validated, setValidated] = useState(false);
+
+
+    const dispatch = useDispatch();
+    const rState = useSelector((state)=> LoggedIn);
+    // const Dispatch = () => {
+    //     return {
+    //         logIn,logOut
+      
+    //     };
+    //   };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -33,6 +46,19 @@ const SignIn = () => {
             console.log("This is the content");
             console.log(content);
             })();
+
+    
+
+        dispatch(logIn());
+
+        // Dispatch(logIn);
+        
+
+        // const rState = state => ({
+        //         LoggedIn: state
+        //   });
+
+        console.log(rState);
 
         // const form = e.currentTarget;
         // if (form.checkValidity() === false) {
@@ -107,8 +133,9 @@ const SignIn = () => {
                         <Button variant="primary"type="submit">Submit</Button>
 
                         </Form>
+                   
                         </div>
-
+                     
                         </Col>
                         <Col></Col>
                     </Row>

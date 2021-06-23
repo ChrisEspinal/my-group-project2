@@ -25,80 +25,6 @@ let DJ = sequelize.define('djs',{
 
 DJ.sync()
 
-DJ.create(
-    {
-    name: "American DJ Focus Spot 5Z LED Light",
-    imgURL: null,
-    quantity: 10,
-    description: "Moving Light"
-},
-{
-    name: "American DJ Focus Spot 5Z LED Light",
-    imgURL: null,
-    quantity: 10,
-    description: "Moving Light"
-})
-// DJ.create({
-//     name: "American DJ Focus Spot 5Z LED Light",
-//     imgURL: null,
-//     quantity: 10,
-//     description: "Moving Light"
-// })
-// DJ.create({
-//     name: "American DJ Focus Spot 5Z LED Light",
-//     imgURL: null,
-//     quantity: 10,
-//     description: "Moving Light"
-// })
-// DJ.create({
-//     name: "American DJ Focus Spot 5Z LED Light",
-//     imgURL: null,
-//     quantity: 10,
-//     description: "Moving Light"
-// })
-// DJ.create({
-//     name: "American DJ Focus Spot 5Z LED Light",
-//     imgURL: null,
-//     quantity: 10,
-//     description: "Moving Light"
-// })
-// DJ.create({
-//     name: "American DJ Focus Spot 5Z LED Light",
-//     imgURL: null,
-//     quantity: 10,
-//     description: "Moving Light"
-// })
-// DJ.create({
-//     name: "American DJ Focus Spot 5Z LED Light",
-//     imgURL: null,
-//     quantity: 10,
-//     description: "Moving Light"
-// })
-// DJ.create({
-//     name: "American DJ Focus Spot 5Z LED Light",
-//     imgURL: null,
-//     quantity: 10,
-//     description: "Moving Light"
-// })
-// DJ.create({
-//     name: "American DJ Focus Spot 5Z LED Light",
-//     imgURL: null,
-//     quantity: 10,
-//     description: "Moving Light"
-// })
-// DJ.create({
-//     name: "American DJ Focus Spot 5Z LED Light",
-//     imgURL: null,
-//     quantity: 10,
-//     description: "Moving Light"
-// })
-// DJ.create({
-//     name: "American DJ Focus Spot 5Z LED Light",
-//     imgURL: null,
-//     quantity: 10,
-//     description: "Moving Light"
-// })
-
 
 let lighting = sequelize.define('lighting',{
     name: Sequelize.STRING,
@@ -107,12 +33,16 @@ let lighting = sequelize.define('lighting',{
     description: Sequelize.STRING,
 });
 
+lighting.sync()
+
 let sound = sequelize.define('sound',{
     name: Sequelize.STRING,
     imgURL: Sequelize.STRING,
     quantity: Sequelize.INTEGER,
     description: Sequelize.STRING,
 });
+
+sound.sync()
 
 let Users =sequelize.define('users',{
     username: Sequelize.STRING,
@@ -207,6 +137,196 @@ app.put('/sound', async function(request,response){
 })
 });
 
-console.log("Test");
+
+DJ.create({
+    name: "American DJ Focus Spot 5Z LED Light",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+})
+DJ.create({
+    name: "Pioneer DJ DDJ-FLX6 4-Channel DJ Controller for Serato DJ Pro and rekordbox dj",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+})
+DJ.create({
+    name: "Denon DJ Prime 4 Professional 4-Channel DJ Controller",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+})
+DJ.create({
+    name: "Reloop ELITE 2-Channel DVS Battle Mixer for Serato DJ Pro",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+})
+DJ.create({
+    name: "Roland DJ-202 Serato DJ Controller",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+})
+DJ.create({
+    name: "Pioneer DJ PLX-500 Direct-Drive Professional Turntable",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+})
+DJ.create({
+    name: "VocoPro KJ-7808RV Pro DJ and Karaoke Mixer",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+})
+DJ.create({
+    name: "The Singing Machine Groove XL Karaoke Machine",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+});
+DJ.create({
+    name: "Odyssey Flite Zone 1200 Turntable Case",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+});
+DJ.create({
+    name: "American DJ Focus Spot 5Z LED Light",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+});
+DJ.create({
+    name: "American DJ Focus Spot 5Z LED Light",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+});
+
+lighting.create({
+    name: "American DJ Focus Spot 5Z LED Light",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+});
+lighting.create({
+    name: "American DJ Focus Spot 5Z LED Light",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+});
+lighting.create({
+    name: "American DJ Focus Spot 5Z LED Light",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+});
+lighting.create({
+    name: "American DJ Focus Spot 5Z LED Light",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+});
+lighting.create({
+    name: "American DJ Focus Spot 5Z LED Light",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+});
+lighting.create({
+    name: "American DJ Focus Spot 5Z LED Light",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+});
+lighting.create({
+    name: "American DJ Focus Spot 5Z LED Light",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+});
+lighting.create({
+    name: "American DJ Focus Spot 5Z LED Light",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+});
+lighting.create({
+    name: "American DJ Focus Spot 5Z LED Light",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+});
+lighting.create({
+    name: "American DJ Focus Spot 5Z LED Light",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+});
+
+sound.create({
+    name: "American DJ Focus Spot 5Z LED Light",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+});
+sound.create({
+    name: "American DJ Focus Spot 5Z LED Light",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+});
+sound.create({
+    name: "American DJ Focus Spot 5Z LED Light",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+});
+sound.create({
+    name: "American DJ Focus Spot 5Z LED Light",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+});
+sound.create({
+    name: "American DJ Focus Spot 5Z LED Light",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+});
+sound.create({
+    name: "American DJ Focus Spot 5Z LED Light",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+});
+sound.create({
+    name: "American DJ Focus Spot 5Z LED Light",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+});
+sound.create({
+    name: "American DJ Focus Spot 5Z LED Light",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+});
+sound.create({
+    name: "American DJ Focus Spot 5Z LED Light",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+});
+sound.create({
+    name: "American DJ Focus Spot 5Z LED Light",
+    imgURL: null,
+    quantity: 10,
+    description: "Moving Light"
+});
+
+console.log("Running");
 
 app.listen(3002)
