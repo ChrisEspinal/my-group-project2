@@ -5,8 +5,8 @@ import { Form, InputGroup } from 'react-bootstrap';
 import { Row, Col } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import { logIn,logOut } from "../actions/indexAction";
-import {useSelector, useDispatch} from 'react-redux';
-import LoggedIn from "../reducers/loggedIn";
+import {useSelector, useDispatch} from 'react-redux';//import this for redux
+import LoggedIn from "../reducers/loggedIn";// and this
 
 const SignIn = () => {
     const [username, setUsername] = useState("");
@@ -15,18 +15,14 @@ const SignIn = () => {
 
 
     const dispatch = useDispatch();
-    const rState = useSelector((state)=> LoggedIn);
-    // const Dispatch = () => {
-    //     return {
-    //         logIn,logOut
-      
-    //     };
-    //   };
 
+
+    //Copy this line, use rState variable for if statement
+    const rState = useSelector((state)=> state.LoggedIn);
+  
     const handleSubmit = (e) => {
         e.preventDefault();
-        // setUsername("");
-        // setPassword("");
+   
 
 
         let values = {
@@ -51,13 +47,7 @@ const SignIn = () => {
 
         dispatch(logIn());
 
-        // Dispatch(logIn);
-        
-
-        // const rState = state => ({
-        //         LoggedIn: state
-        //   });
-
+  
         console.log(rState);
 
         // const form = e.currentTarget;

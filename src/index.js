@@ -7,12 +7,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router} from "react-router-dom";
 import {Provider} from "react-redux";
 import {createStore} from "redux";
-import LoggedIn from './reducers/loggedIn';
+import reducers from './reducers/reducers';
 
-const store = createStore(LoggedIn,
+const store = createStore(reducers,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   );
-console.log(store.getState());
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store ={store}>
