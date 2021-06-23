@@ -43,6 +43,7 @@ class StyledNavbar extends React.Component{
                 </LinkContainer>
                 <LinkContainer to="/signIn">
                   <Nav.Link>Sign In</Nav.Link>
+                  {/* sign  out switch redux state */}
                 </LinkContainer>
               </Nav>
 

@@ -17,10 +17,10 @@ const SignIn = () => {
     const handleSubmit = (e) => {
 
         const form = e.currentTarget;
-        if (form.checkValidity() === false) {
-          e.preventDefault();
-          e.stopPropagation();
-        }
+        // if (form.checkValidity() === false) {
+        //   e.preventDefault();
+        //   e.stopPropagation();
+        // }
     
         setValidated(true);
 
