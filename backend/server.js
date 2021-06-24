@@ -3,9 +3,7 @@ let {Sequelize} = require('Sequelize');
 const cors =require('cors');
 let app =express();
 
-
 app.use(cors())
-
 
 app.use(express.json()); 
 
@@ -27,7 +25,6 @@ let DJ = sequelize.define('djs',{
 });
 
 DJ.sync()
-
 
 let lighting = sequelize.define('lighting',{
     name: Sequelize.STRING,
@@ -118,6 +115,17 @@ app.post('/register', function(request, response){
    
 })
 
+// query for databases
+app.get('/home', async function(request, response){
+
+    let need = await DJ.findAll();
+    let need2 = await lighting.findAll();
+    let need3 =await sound.findAll();
+
+    response.json(need,need2,need3);
+})
+
+
 
 // update quantity available for selling based on user 'purchases'
 // Might be changed becuasse of redux
@@ -146,7 +154,9 @@ app.put('/sound', async function(request,response){
 })
 });
 
+let val = true;
 
+if(val === false){
 
 
 DJ.create({
@@ -373,6 +383,7 @@ sound.create({
     quantity: 10,
     description: "Moving Light"
 });
+}
 
 console.log("Running");
 

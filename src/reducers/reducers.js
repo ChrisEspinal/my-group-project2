@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux'
 import LoggedIn from './loggedIn'
-import cart from './cart'
+import Cart from './cart'
 
 const reducers =combineReducers({
     LoggedIn,
-    Cart
+    // Cart,
 })
 
 export default reducers;

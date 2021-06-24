@@ -9,7 +9,7 @@ const Cart = (state = 0, action) => {
     }
 }
 
-export default Cart
+export default Cart;
 
 /**
  * imports for file

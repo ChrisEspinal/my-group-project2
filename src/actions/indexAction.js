@@ -21,3 +21,4 @@ export const decCart = () => {
         type: "removeFromCart"
     }
 }
+
