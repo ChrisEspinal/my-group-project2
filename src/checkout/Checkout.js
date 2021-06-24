@@ -27,26 +27,28 @@ const Checkout = () => {
     
         setValidated(true);
 
-        // let values = {
-        //     name: name,
-        //     ccNumber: ccnumber,
-        //     billingAddress: billingaddress,
-        //     shippingAddress: shippingaddress,
-        // };
+        let values = {
+            name: name,
+            ccNumber: ccNumber,
+            expDate: expDate,
+            cvv: cvv,
+            billingAddress: billingAddress,
+            shippingAddress: shippingAddress,
+        };
 
-    //     (async () => {
-    //         const rawResponse = await fetch('/checkout', {
-    //           method: 'POST',
-    //           headers: {
-    //             'Accept': 'application/json',
-    //             'Content-Type': 'application/json'
-    //           },
-    //           body: JSON.stringify(values)
-    //         });
-    //         const content = await rawResponse.json();
-    //         console.log("This is the content");
-    //         console.log(content);
-    //       })();
+        (async () => {
+            const rawResponse = await fetch('/checkout', {
+              method: 'POST',
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(values)
+            });
+            const content = await rawResponse.json();
+            console.log("This is the content");
+            console.log(content);
+          })();
 
     //     // alert(username + ', you have checkedout successfully!');
     };

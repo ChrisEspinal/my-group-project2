@@ -53,11 +53,13 @@ const SignIn = () => {
             const content = await rawResponse.json();
             console.log("This is the content");
             console.log(content);
+            console.log(username);
+
+            
+            if(content==true){
+            dispatch(logIn(username));
+            }
             })();
-
-    
-
-        dispatch(logIn());
 
   
         console.log(rState);

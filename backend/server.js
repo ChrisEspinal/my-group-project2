@@ -1,6 +1,7 @@
 let express = require('express');
 let {Sequelize} = require('Sequelize');
 const cors =require('cors');
+const { response } = require('express');
 let app =express();
 
 app.use(cors())
@@ -11,7 +12,7 @@ let server = app.listen(0, () => {
     console.log('Listening', server.address().port)
   })
 
-var sequelize = new Sequelize('postgres://postgres:Pg3600@localhost:3001/postgres');
+var sequelize = new Sequelize('postgres://postgres:peekaboo@localhost:5432/postgres');
 
 // Define databases
 let DJ = sequelize.define('djs',{
@@ -50,10 +51,17 @@ let sound = sequelize.define('sound',{
 
 sound.sync()
 
+
+
 let Users =sequelize.define('users',{
     username: Sequelize.STRING,
     email: Sequelize.STRING,
     password: Sequelize.STRING,
+    creditCard: Sequelize.INTEGER,
+    exp: Sequelize.DATE,
+    cvv: Sequelize.INTEGER,
+    billingAddress: Sequelize.STRING,
+    shippingAddress: Sequelize.STRING,
 })
 
 
@@ -115,6 +123,18 @@ app.post('/register', function(request, response){
     })
    
 })
+
+// app.post('/checkout', {
+ 
+//             Users.update({
+//                 creditCard: Sequelize.INTEGER,
+//                 exp: Sequelize.DATE,
+//                 cvv: Sequelize.INTEGER,
+//                 billingAddress: Sequelize.STRING,
+//                 shippingAddress: Sequelize.STRING,
+//             })
+     
+// })
 
 app.get('/shop', async function(request, response){
 

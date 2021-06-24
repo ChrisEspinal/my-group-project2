@@ -1,10 +1,12 @@
 const LoggedIn = (state= false, action)  =>{
+    // console.log("here");
     switch(action.type){
         case "log-in":
-            return state = true;
+            return state = {login: true, 
+                            username: action.payload};
         
         case "log-out":
-            return state = false;
+            return state = {login: false};
         
         default:
             return state;
