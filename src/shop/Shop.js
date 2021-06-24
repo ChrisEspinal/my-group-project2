@@ -13,12 +13,31 @@ import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 
+class Shop extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            itemArray: []
+        }
+    }
 
-const Shop = () => {
-    
+    componentDidMount(){
+        axios.get("http://localhost:3002/shop")
+        .then(response => {
+          console.log(response.data);
+          this.setState({itemArray: response.data})
+        })
+        .catch(error => {
+          console.log(error);
+        }); 
+    }
 
-    return (
-        <div className="shopContainer">
+
+
+render(){
+    return(
+      
+          <div className="shopContainer">
 
             <div className="upperArea">
                 <Row>
@@ -92,67 +111,35 @@ const Shop = () => {
             </div>
 
             <div className="bottomArea">
+            <h1><b>Shop Now</b></h1>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
                 <Row>
                     <Col sm={12}>
-                        <div className="custom-jumbotron">
-                            <h1><b>Shop Now</b></h1>
-                            <div>
+                        <Row>
+                            <Col sm={12} lg={4}>
+                                <div className="custom-jumbotron">
+                                    <h1>DJ Equipment</h1>
+                                    <ItemCard itemArray={this.state.itemArray}/>
+                                </div>
+                            </Col>
 
-                            {/* <ul>
-                                {item.products.map(items => (
-                                    <li key={items.id}>
-                                    <a href={items.quantity}>{items.description}</a>
-                                    </li>
-                                ))}
-                            </ul> */}
-
-                                {/* <ItemCard {itemsInDB}/> */}
-                            </div>
-                            {/*<CardDeck>
-                                <Card>
-                                    <Card.Img variant="top" src="holder.js/100px160" />
-                                    <Card.Body>
-                                    <Card.Title>Card title</Card.Title>
-                                    <Card.Text>
-                                        This is a wider card with supporting text below as a natural lead-in to
-                                        additional content. This content is a little bit longer.
-                                    </Card.Text>
-                                    </Card.Body>
-                                    <Card.Footer>
-                                    <small className="text-muted">Last updated 3 mins ago</small>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </Card.Footer>
-                                </Card>
-                                <Card>
-                                    <Card.Img variant="top" src="holder.js/100px160" />
-                                    <Card.Body>
-                                    <Card.Title>Card title</Card.Title>
-                                    <Card.Text>
-                                        This card has supporting text below as a natural lead-in to additional
-                                        content.{' '}
-                                    </Card.Text>
-                                    </Card.Body>
-                                    <Card.Footer>
-                                    <small className="text-muted">Last updated 3 mins ago</small>
-                                    </Card.Footer>
-                                </Card>
-                                <Card>
-                                    <Card.Img variant="top" src="holder.js/100px160" />
-                                    <Card.Body>
-                                    <Card.Title>Card title</Card.Title>
-                                    <Card.Text>
-                                        This is a wider card with supporting text below as a natural lead-in to
-                                        additional content. This card has even longer content than the first to
-                                        show that equal height action.
-                                    </Card.Text>
-                                    </Card.Body>
-                                    <Card.Footer>
-                                    <small className="text-muted">Last updated 3 mins ago</small>
-                                    </Card.Footer>
-                                </Card>
-                            </CardDeck>  */}
-                        </div>
+                            <Col sm={12} lg={4}>
+                                <div className="custom-jumbotron">
+                                    <h1>Lighting</h1>
+                                    <ItemCard itemArray={this.state.itemArray}/>
+                                </div>
+                            </Col>
+                            <Col sm={12} lg={4}>
+                                <div className="custom-jumbotron">
+                                    <h1>Sound</h1>
+                                    <ItemCard itemArray={this.state.itemArray}/>
+                                </div>
+                            </Col>
+                            
+                        </Row>
                     </Col>
                 </Row>
             </div>
@@ -181,6 +168,8 @@ const Shop = () => {
 
         </div>
     );
+}
+
 }
 
 export default Shop;

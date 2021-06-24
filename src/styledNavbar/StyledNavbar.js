@@ -55,9 +55,9 @@ const StyledNavbar = () => {
                 </LinkContainer>
                 <LinkContainer to="/cart">
                   <Nav.Link>
-                  <span class="fa-layers fa-fw fa-2x">
+                  <span className="fa-layers fa-fw fa-2x">
                     <i>{sc}</i>
-                    <span class="fa-layers-counter">{count}</span>
+                    <span className="fa-layers-counter">{count}</span>
                   </span>
                   </Nav.Link>
                 </LinkContainer>

@@ -118,6 +118,15 @@ app.post('/register', function(request, response){
    
 })
 
+app.get('/shop', async function(request, response){
+
+    let need = await DJ.findAll();
+    let need2 = await lighting.findAll();
+    let need3 =await sound.findAll();
+
+    response.json(need,need2,need3);
+})
+
 
 // update quantity available for selling based on user 'purchases'
 // Might be changed becuasse of redux
@@ -146,8 +155,9 @@ app.put('/sound', async function(request,response){
 })
 });
 
+let val = true;
 
-
+if(val === false){
 
 DJ.create({
     name: "American DJ Focus Spot 5Z LED Light",
@@ -373,6 +383,7 @@ sound.create({
     quantity: 10,
     description: "Moving Light"
 });
+}
 
 console.log("Running");
 
