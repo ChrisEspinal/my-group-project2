@@ -140,12 +140,9 @@ const SignIn = () => {
                             </Form.Group>
                         </Form.Row>
 
-                     
-                        <LinkContainer to="/signIn">
-                            <Nav.Link>
+                    
                                 <Button variant="primary"type="submit">Submit</Button>
-                            </Nav.Link>
-                        </LinkContainer>
+                            
                         </Form>
                         </div>
 

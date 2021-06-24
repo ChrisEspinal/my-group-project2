@@ -64,6 +64,7 @@ let Users =sequelize.define('users',{
     shippingAddress: Sequelize.STRING,
 })
 
+Users.sync()
 
 // Define functions for password verification
 // The first one verifies the password, is now working properly
@@ -72,8 +73,6 @@ app.post('/signIn', async function(request,response){
 
     let userName = request.body.userName;
     let passWord = request.body.passWord;
-
-    Users.sync()
 
     let test = await Users.findOne({
         where:{
@@ -124,17 +123,23 @@ app.post('/register', function(request, response){
    
 })
 
-// app.post('/checkout', {
+app.put('/checkout', async function(request, response){
+
+    console.log("Updating")
  
-//             Users.update({
-//                 creditCard: Sequelize.INTEGER,
-//                 exp: Sequelize.DATE,
-//                 cvv: Sequelize.INTEGER,
-//                 billingAddress: Sequelize.STRING,
-//                 shippingAddress: Sequelize.STRING,
-//             })
+    Users.update({
+        creditCard: request.body.ccNumber,
+        exp: request.body.expDate,
+        cvv: request.body.ccv,
+        billingAddress: request.body.billingAddress,
+        shippingAddress: request.body.shippingAddress,
+    },
+        {where: {
+            username: request.body.username
+        }
+    });
      
-// })
+})
 
 app.get('/shop', async function(request, response){
 

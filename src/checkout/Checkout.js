@@ -6,6 +6,7 @@ import { Row, Col } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { useSelector } from "react-redux";
 
 const Checkout = () => {
     const [name, setName] = useState("");
@@ -14,12 +15,17 @@ const Checkout = () => {
     const [cvv, setCVV] = useState("");
     const [billingAddress, setBillingAddress] = useState("");
     const [shippingAddress, setShippingAddress] = useState("");
+    
 
     const [validated, setValidated] = useState(false);
 
+    const user = useSelector((state)=> state.LoggedIn)
+
+    console.log(user.login);
     const handleSubmit = (e) => {
 
         const form = e.currentTarget;
+        e.preventDefault();
         if (form.checkValidity() === false) {
           e.preventDefault();
           e.stopPropagation();
@@ -27,7 +33,10 @@ const Checkout = () => {
     
         setValidated(true);
 
+
+
         let values = {
+            username: user.username,
             name: name,
             ccNumber: ccNumber,
             expDate: expDate,
@@ -38,7 +47,7 @@ const Checkout = () => {
 
         (async () => {
             const rawResponse = await fetch('/checkout', {
-              method: 'POST',
+              method: 'PUT',
               headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
