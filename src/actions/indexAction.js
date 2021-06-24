@@ -22,3 +22,9 @@ export const decCart = () => {
     }
 }
 
+export const add_item = (newItem) =>{
+    return{
+        type: "add_item",
+        newItem: newItem,
+    };
+}

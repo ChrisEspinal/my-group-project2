@@ -1,4 +1,4 @@
-const Cart = (state = 0, action) => {
+const Cart = (state = 0, action) =>{
     switch(action.type){
         case "addToCart":
             return state + 1;
@@ -6,7 +6,7 @@ const Cart = (state = 0, action) => {
             if(state >0){
                 return state -1;
             }else return state;
-        case "default":
+        default:
             return state;
     }
 }

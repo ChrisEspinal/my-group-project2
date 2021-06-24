@@ -11,7 +11,7 @@ let server = app.listen(0, () => {
     console.log('Listening', server.address().port)
   })
 
-var sequelize = new Sequelize('postgres://postgres:Pg3600@localhost:3001/postgres');
+var sequelize = new Sequelize('postgres://postgres:peekaboo@localhost:5432/postgres');
 
 // Define databases
 let DJ = sequelize.define('djs',{
@@ -121,8 +121,32 @@ app.get('/shop', async function(request, response){
     let need2 = await lighting.findAll();
     let need3 =await sound.findAll();
 
-    response.json({need,need2,need3});
+    response.json(need,need2,need3);
 })
+
+app.post('/cart', async function(request, response){
+    console.log("Searching...")
+    console.log(request.body);
+    let items =[];
+    for(let i =0; i<request.body.length;i++){
+        console.log(request.body[i]);
+        // DJ.findOne({
+        //     where:{
+        //         id: request.body[i]
+        //     }
+        // }).then(function(dj){
+        //     if(!dj){
+
+        //     }else{
+        //         response.json(dj)
+        //     }
+        // })
+    }
+
+    response.json(items);
+})
+
+
 
 
 

@@ -5,11 +5,24 @@ import { Link } from 'react-router-dom';
 import { CardDeck} from 'react-bootstrap';
 import { Modal, Button } from "react-bootstrap";
 
+import {incCart, decCart,add_item} from "../actions/indexAction";
+import {useSelector,useDispatch} from 'react-redux';
+
+
 const ItemCard = (props) => {
     
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const dispatch = useDispatch();
+  const itemCart = useSelector((state)=> state.Items)
+
+  const action1 = id => {
+    return dispatch => {
+      dispatch(incCart())
+      dispatch(add_item(id))
+    }
+  }
 
     const product = props.itemArray.map((itemArray) => {
         return (
@@ -44,15 +57,15 @@ const ItemCard = (props) => {
                                 </div>      
                             </Modal.Body>
                             <Modal.Footer>
-                                <Button variant="secondary" onClick={handleClose}>
+                                <Button variant="secondary" onClick={handleClose,()=>dispatch(incCart(),add_item(itemArray.id))}>
                                 Add To Cart
                                 </Button>
                             </Modal.Footer>
                         </Modal>
                         <div>
-                        <Link to="/cart">
-                        <Button variant="primary" className="btns">Add to Cart</Button>
-                        </Link>
+                        {/* <Link to="/cart"> */}
+                        <Button variant="primary" className="btns" onClick={()=>(dispatch(add_item(itemArray.id)),dispatch(incCart()))}>Add to Cart</Button>
+                        {/* </Link> */}
                         </div>
                     </Card.Footer>
                 </Card>
