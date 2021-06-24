@@ -17,15 +17,21 @@ class Shop extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            itemArray: []
+            itemArray: [],
+            itemArray2: [],
+            itemArray3: [],
         }
     }
 
     componentDidMount(){
         axios.get("http://localhost:3002/shop")
         .then(response => {
-          console.log(response.data);
-          this.setState({itemArray: response.data})
+          console.log(response.data.need);
+          this.setState({
+              itemArray: response.data.need,
+              itemArray2: response.data.need2,
+              itemArray3: response.data.need3
+            })
         })
         .catch(error => {
           console.log(error);
@@ -116,32 +122,26 @@ render(){
             <br/>
             <br/>
             <br/>
-                <Row>
-                    <Col sm={12}>
-                        <Row>
-                            <Col sm={12} lg={4}>
+
+                                <Row>
                                 <div className="custom-jumbotron">
                                     <h1>DJ Equipment</h1>
                                     <ItemCard itemArray={this.state.itemArray}/>
-                                </div>
-                            </Col>
-
-                            <Col sm={12} lg={4}>
+                                </div> 
+                                </Row>
+                                <Row>
                                 <div className="custom-jumbotron">
                                     <h1>Lighting</h1>
-                                    <ItemCard itemArray={this.state.itemArray}/>
-                                </div>
-                            </Col>
-                            <Col sm={12} lg={4}>
+                                    <ItemCard itemArray={this.state.itemArray2}/>
+                                </div> 
+                                </Row>
+                                <Row>
                                 <div className="custom-jumbotron">
                                     <h1>Sound</h1>
-                                    <ItemCard itemArray={this.state.itemArray}/>
-                                </div>
-                            </Col>
-                            
-                        </Row>
-                    </Col>
-                </Row>
+                                    <ItemCard itemArray={this.state.itemArray3}/>
+                                </div> 
+                                </Row>
+                           
             </div>
 
 

@@ -124,7 +124,7 @@ app.get('/shop', async function(request, response){
     let need2 = await lighting.findAll();
     let need3 =await sound.findAll();
 
-    response.json(need,need2,need3);
+    response.json({need,need2,need3});
 })
 
 
