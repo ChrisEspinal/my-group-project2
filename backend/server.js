@@ -3,9 +3,7 @@ let {Sequelize} = require('Sequelize');
 const cors =require('cors');
 let app =express();
 
-
 app.use(cors())
-
 
 app.use(express.json()); 
 
@@ -13,7 +11,7 @@ let server = app.listen(0, () => {
     console.log('Listening', server.address().port)
   })
 
-var sequelize = new Sequelize('postgres://postgres:Pg3600@localhost:3001/postgres');
+var sequelize = new Sequelize('postgres://postgres:peekaboo@localhost:5432/postgres');
 
 // Define databases
 let DJ = sequelize.define('djs',{
@@ -27,7 +25,6 @@ let DJ = sequelize.define('djs',{
 });
 
 DJ.sync()
-
 
 let lighting = sequelize.define('lighting',{
     name: Sequelize.STRING,
@@ -126,6 +123,31 @@ app.get('/shop', async function(request, response){
 
     response.json({need,need2,need3});
 })
+
+app.post('/cart', async function(request, response){
+    console.log("Searching...")
+    console.log(request.body);
+    let items =[];
+    for(let i =0; i<request.body.length;i++){
+        console.log(request.body[i]);
+        // DJ.findOne({
+        //     where:{
+        //         id: request.body[i]
+        //     }
+        // }).then(function(dj){
+        //     if(!dj){
+
+        //     }else{
+        //         response.json(dj)
+        //     }
+        // })
+    }
+
+    response.json(items);
+})
+
+
+
 
 
 // update quantity available for selling based on user 'purchases'

@@ -21,3 +21,10 @@ export const decCart = () => {
         type: "removeFromCart"
     }
 }
+
+export const add_item = (newItem) =>{
+    return{
+        type: "add_item",
+        newItem: newItem,
+    };
+}

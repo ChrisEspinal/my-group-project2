@@ -5,13 +5,15 @@ import {LinkContainer} from 'react-router-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
+import {incCart, decCart} from "../actions/indexAction";
+import {useSelector, useDispatch} from 'react-redux';
+
 const sc = <FontAwesomeIcon icon={faShoppingCart}/>
 
 const StyledNavbar = () => {
 
-  const [count, setCount] = useState(0);
-
-
+  const itemCart = useSelector((state)=> state.Cart)
+  const dispatch = useDispatch();
 
 
         return(
@@ -57,7 +59,7 @@ const StyledNavbar = () => {
                   <Nav.Link>
                   <span className="fa-layers fa-fw fa-2x">
                     <i>{sc}</i>
-                    <span className="fa-layers-counter">{count}</span>
+                    <span className="fa-layers-counter">{itemCart}</span>
                   </span>
                   </Nav.Link>
                 </LinkContainer>
