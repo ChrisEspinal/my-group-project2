@@ -62,36 +62,6 @@ const SignIn = () => {
   
         console.log(rState);
 
-        // const form = e.currentTarget;
-        // if (form.checkValidity() === false) {
-        //   e.preventDefault();
-        //   e.stopPropagation();
-        // }
-    
-        // setValidated(true);
-
-        // alert(username + ', routing to home page!');
-
-        // let values = {
-        //     userName: username,
-        //     passWord: password
-        // };
-
-        // (async () => {
-        //     const rawResponse = await fetch('/signIn', {
-        //         method: 'POST',
-        //         headers: {
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'application/json'
-        //         },
-        //         body: JSON.stringify(values)
-        //     });
-        //     const content = await rawResponse.json();
-        //     console.log("This is the content");
-        //     console.log(content);
-        //     })();
-
-
     };
 
     const toggleViewPassword = () => {

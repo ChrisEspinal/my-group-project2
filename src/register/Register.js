@@ -6,6 +6,10 @@ import { Row, Col } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { logIn } from "../actions/indexAction";
+import {LinkContainer} from 'react-router-bootstrap';
+import {useSelector, useDispatch} from 'react-redux';
+import {Navbar, Nav, NavDropdown} from 'react-bootstrap';
 
 const SignIn = () => {
     const [email, setEmail] = useState("");
@@ -13,15 +17,17 @@ const SignIn = () => {
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState("");
     const [validated, setValidated] = useState(false);
+    
+    
+
+    const dispatch = useDispatch();
+
 
     const handleSubmit = (e) => {
 
         const form = e.currentTarget;
-        // if (form.checkValidity() === false) {
-        //   e.preventDefault();
-        //   e.stopPropagation();
-        // }
-    
+      
+        
         setValidated(true);
 
         let values = {
@@ -42,6 +48,7 @@ const SignIn = () => {
             const content = await rawResponse.json();
             console.log("This is the content");
             console.log(content);
+            // dispatch(logIn());
           })();
 
         // alert(username + ', you have registered successfully!');
@@ -133,8 +140,12 @@ const SignIn = () => {
                             </Form.Group>
                         </Form.Row>
 
-                        <Button variant="primary"type="submit">Submit</Button>
-
+                     
+                        <LinkContainer to="/signIn">
+                            <Nav.Link>
+                                <Button variant="primary"type="submit">Submit</Button>
+                            </Nav.Link>
+                        </LinkContainer>
                         </Form>
                         </div>
 
