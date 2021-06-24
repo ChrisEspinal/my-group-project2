@@ -6,6 +6,8 @@ const Cart = (state = 0, action) => {
             if(state >0){
                 return state -1;
             }else return state;
+        case "default":
+            return state;
     }
 }
 
