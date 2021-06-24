@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import Card from 'react-bootstrap/Card'
 import './ItemCard.css';
+import dj_default from '../assets/dj_default.jpeg';
+import dj_modal_default from '../assets/dj_modal_default.jpeg';
+import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { CardDeck} from 'react-bootstrap';
 import { Modal, Button } from "react-bootstrap";
@@ -26,10 +29,9 @@ const ItemCard = (props) => {
 
     const product = props.itemArray.map((itemArray) => {
         return (
-            <li key={itemArray.id}>
-            <CardDeck>
+            <li key={itemArray.id}>  
                 <Card>
-                    <Card.Img variant="top" src={itemArray.imgURL} />
+                    <Card.Img variant="top" src={dj_default} />
                     <Card.Body>
                         <Card.Title>{itemArray.name}</Card.Title>
                         <Card.Text>
@@ -39,17 +41,21 @@ const ItemCard = (props) => {
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
+                        <Row>
+                            <Col sm={12} lg={6}>
                         <div>
                             <Button variant="warning" className="btns" onClick={handleShow} data-target=".kf-modal-lg">
                                 View Product
                             </Button>
                         </div>
+                        </Col>
                         <Modal size="lg"show={show} onHide={handleClose}>
                             <Modal.Header closeButton>
                                 <Modal.Title><b>{itemArray.name}</b></Modal.Title>
                             </Modal.Header>
                             <Modal.Body>
-                                <img src={itemArray.imgURL} alt="image"/>
+                                <div className="embed-responsive embed-responsive-16by9"><img src={dj_modal_default} alt="image"/></div>
+                                
                                 <div className="embed-responsive embed-responsive-16by9">
                                     <p>{itemArray.description}</p>
                                     <br/>
@@ -62,21 +68,24 @@ const ItemCard = (props) => {
                                 </Button>
                             </Modal.Footer>
                         </Modal>
+                        <Col sm={12} lg={6}>
                         <div>
                         {/* <Link to="/cart"> */}
                         <Button variant="primary" className="btns" onClick={()=>(dispatch(add_item(itemArray.id)),dispatch(incCart()))}>Add to Cart</Button>
                         {/* </Link> */}
                         </div>
+                        </Col>
+                        </Row>
                     </Card.Footer>
                 </Card>
-            </CardDeck>
+            
             <br/>
             </li>
             )});
             
     
     return (
-        <ul >{product}</ul>
+    <ul><CardDeck style={{display: 'grid', gridTemplateColumns: 'repeat(3,1fr)'}}>{product}</CardDeck></ul>
     );
         
 }
