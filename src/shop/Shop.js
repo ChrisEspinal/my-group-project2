@@ -5,6 +5,7 @@ import { Row, Col } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { CardDeck, Card } from 'react-bootstrap';
+import axios from 'axios';
 import ItemCard from '../itemCard/ItemCard';
 import dj_carousel1 from '../assets/dj_carousel1.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -12,15 +13,9 @@ import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 
+
 const Shop = () => {
     
-    const [itemArray, setItemArray] = useState([]);
-
-    useEffect(()=>{
-        // setItemArray(props.data);
-        // console.log(props.data);
-    })
-
 
     return (
         <div className="shopContainer">
@@ -102,7 +97,16 @@ const Shop = () => {
                         <div className="custom-jumbotron">
                             <h1><b>Shop Now</b></h1>
                             <div>
-                                {/* <ItemCard itemArray={this.state.gifArray}/> */}
+
+                            {/* <ul>
+                                {item.products.map(items => (
+                                    <li key={items.id}>
+                                    <a href={items.quantity}>{items.description}</a>
+                                    </li>
+                                ))}
+                            </ul> */}
+
+                                {/* <ItemCard {itemsInDB}/> */}
                             </div>
                             {/*<CardDeck>
                                 <Card>

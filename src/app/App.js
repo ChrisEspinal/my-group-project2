@@ -4,6 +4,9 @@ import Home from '../home/Home';
 import Shop from '../shop/Shop';
 import SignIn from '../signIn/SignIn';
 import Register from '../register/Register';
+import Cart from '../cart/Cart';
+import HotItems from '../seeMore/HotItems';
+import Sale from '../seeMore/Sale';
 import StyledNavbar from '../styledNavbar/StyledNavbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -18,7 +21,10 @@ function App() {
           <Route path="/home" component={Home} /> 
           <Route path="/shop" component={Shop} />
           <Route path="/signIn" component={SignIn} /> 
-          <Route path="/register" component={Register} /> 
+          <Route path="/register" component={Register} />
+          <Route path="/cart" component={Cart} />
+          <Route path="/hotItems" component={HotItems} />  
+          <Route path="/sale" component={Sale} />    
         </Switch>
       </Router>
     </div>
