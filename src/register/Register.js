@@ -4,23 +4,31 @@ import { Jumbotron, Container } from 'react-bootstrap';
 import { Form, InputGroup } from 'react-bootstrap';
 import { Row, Col } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
 
 const SignIn = () => {
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState("");
     const [validated, setValidated] = useState(false);
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        // setEmail("");
-        // setUsername("");
-        // setPassword("");
+
+        const form = e.currentTarget;
+        // if (form.checkValidity() === false) {
+        //   e.preventDefault();
+        //   e.stopPropagation();
+        // }
+    
+        setValidated(true);
 
         let values = {
             userName: username,
             email: email,
-            passWord:password};
+            passWord: password
+        };
 
         (async () => {
             const rawResponse = await fetch('/register', {
@@ -36,16 +44,14 @@ const SignIn = () => {
             console.log(content);
           })();
 
-        const form = e.currentTarget;
-        // if (form.checkValidity() === false) {
-        //   e.preventDefault();
-        //   e.stopPropagation();
-        // }
-    
-        setValidated(true);
-
-        alert(username + ', you have registered successfully!');
+        // alert(username + ', you have registered successfully!');
     };
+
+    const toggleViewPassword = () => {
+        setShowPassword(showPassword ? false : true);
+      };
+
+    const eye = <FontAwesomeIcon icon={faEye}/>  
 
         return (
             <div className="register-body">
@@ -107,17 +113,23 @@ const SignIn = () => {
                         </Form.Row>
 
                         <Form.Row>
-                                <Form.Group as={Col} sm="12" controlId="validationCustom02">
-                                <Form.Control
+                            <Form.Group as={Col} sm="12" controlId="validationCustom02">
+                            <InputGroup>
+                            <Form.Control
                                 required
-                                type="text"
+                                type={showPassword ? "text" : "password"}
                                 className="password"
                                 placeholder="Password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
+                                aria-describedby="eye_toggle"
                             />
+                            <InputGroup.Append>
+                            <InputGroup.Text id="eye_toggle"><i onClick={toggleViewPassword}>{eye}</i></InputGroup.Text>
+                            </InputGroup.Append>
                             <Form.Control.Feedback type="invalid">Please enter a password.</Form.Control.Feedback>
                             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                            </InputGroup>
                             </Form.Group>
                         </Form.Row>
 

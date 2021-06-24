@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useState } from "react";
 import './StyledNavbar.css';
 import {Navbar, Nav, NavDropdown} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
-class StyledNavbar extends React.Component{
+const sc = <FontAwesomeIcon icon={faShoppingCart}/>
 
-    render(){
+const StyledNavbar = () => {
+
+  const [count, setCount] = useState(0);
+
+
+
+
         return(
           <Navbar className="navbar" collapseOnSelect bg="dark" variant="dark" expand="lg">
 
@@ -22,15 +30,15 @@ class StyledNavbar extends React.Component{
                   <Nav.Link>Home</Nav.Link>
                 </LinkContainer>
 
-                <LinkContainer to="/otherPage">
-                  <Nav.Link>Other Page</Nav.Link>
+                <LinkContainer to="/shop">
+                  <Nav.Link>Shop</Nav.Link>
                 </LinkContainer>
 
                   <NavDropdown title="See More" id="collasible-nav-dropdown">
-                    <LinkContainer to="/">
+                    <LinkContainer to="/hotItems">
                       <NavDropdown.Item>Hot Items</NavDropdown.Item>
                     </LinkContainer>
-                    <LinkContainer to="/">
+                    <LinkContainer to="/sale">
                       <NavDropdown.Item>Sale</NavDropdown.Item>
                     </LinkContainer>
                   </NavDropdown>
@@ -45,13 +53,20 @@ class StyledNavbar extends React.Component{
                   <Nav.Link>Sign In</Nav.Link>
                   {/* sign  out switch redux state */}
                 </LinkContainer>
+                <LinkContainer to="/cart">
+                  <Nav.Link>
+                  <span className="fa-layers fa-fw fa-2x">
+                    <i>{sc}</i>
+                    <span className="fa-layers-counter">{count}</span>
+                  </span>
+                  </Nav.Link>
+                </LinkContainer>
               </Nav>
 
               </Navbar.Collapse>
 
           </Navbar>
         );  
-    }
 }
 
 export default StyledNavbar;

@@ -11,7 +11,7 @@ let server = app.listen(0, () => {
     console.log('Listening', server.address().port)
   })
 
-var sequelize = new Sequelize('postgres://postgres:peekaboo@localhost:5432/postgres');
+var sequelize = new Sequelize('postgres://postgres:Pg3600@localhost:3001/postgres');
 
 // Define databases
 let DJ = sequelize.define('djs',{
@@ -115,8 +115,7 @@ app.post('/register', function(request, response){
    
 })
 
-// query for databases
-app.get('/home', async function(request, response){
+app.get('/shop', async function(request, response){
 
     let need = await DJ.findAll();
     let need2 = await lighting.findAll();
@@ -157,7 +156,6 @@ app.put('/sound', async function(request,response){
 let val = true;
 
 if(val === false){
-
 
 DJ.create({
     name: "American DJ Focus Spot 5Z LED Light",
