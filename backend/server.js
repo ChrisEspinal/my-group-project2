@@ -187,10 +187,6 @@ app.post('/cart', async function(request, response){
     response.json(items);
 })
 
-
-
-
-
 // update quantity available for selling based on user 'purchases'
 // Might be changed becuasse of redux
 app.put('/deejay', async function(request,response){

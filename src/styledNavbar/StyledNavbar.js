@@ -45,6 +45,10 @@ const StyledNavbar = () => {
                     </LinkContainer>
                   </NavDropdown>
 
+                  <LinkContainer to="/checkout">
+                  <Nav.Link>Checkout</Nav.Link>
+                  </LinkContainer>
+
               </Nav>
 
               <Nav>
