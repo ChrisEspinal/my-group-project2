@@ -37,7 +37,7 @@ const ItemCard = (props) => {
         return (
             <li key={itemArray.id}>  
                 <Card>
-                    <Card.Img variant="top" src={dj_default} />
+                    <Card.Img variant="top" src={itemArray.imgURL} />
                     <Card.Body>
                         <Card.Title>{itemArray.name}</Card.Title>
                         <Card.Text>

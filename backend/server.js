@@ -109,7 +109,8 @@ app.post('/register', function(request, response){
                 password: passWord
             })
         }else{
-            console.log("User exists")
+            response.send(false);
+            console.log("User exists");
         }
     })
    
@@ -216,12 +217,12 @@ app.put('/sound', async function(request,response){
 
 let val = true;
 
-if(val === false){
+if(val === false){ 
 
 DJ.create({
     name: "American DJ Focus Spot 5Z LED Light",
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/2TXoOyk",
+    price: 1299.99,
     hotItem: true,
     sale: false,
     quantity: 10,
@@ -229,8 +230,8 @@ DJ.create({
 })
 DJ.create({
     name: "Pioneer DJ DDJ-FLX6 4-Channel DJ Controller for Serato DJ Pro and rekordbox dj",
-    imgURL: null,
-    price: 0.0,
+    imgURL: 'https://bit.ly/3zQN6L3',
+    price: 599.99,
     hotItem: true,
     sale: true,
     quantity: 10,
@@ -238,8 +239,8 @@ DJ.create({
 })
 DJ.create({
     name: "Denon DJ Prime 4 Professional 4-Channel DJ Controller",
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/2SrR8bO",
+    price: 1899.99,
     hotItem: false,
     sale: true,
     quantity: 10,
@@ -247,8 +248,8 @@ DJ.create({
 })
 DJ.create({
     name: "Reloop ELITE 2-Channel DVS Battle Mixer for Serato DJ Pro",
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/2SV0kWx",
+    price: 1299.99,
     hotItem: true,
     sale: true,
     quantity: 10,
@@ -256,8 +257,8 @@ DJ.create({
 })
 DJ.create({
     name: "Roland DJ-202 Serato DJ Controller",
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/3hiOYnp",
+    price: 299.99,
     hotItem: true,
     sale: false,
     quantity: 10,
@@ -265,17 +266,17 @@ DJ.create({
 })
 DJ.create({
     name: "Pioneer DJ PLX-500 Direct-Drive Professional Turntable",
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/3wU0ITT",
+    price: 349.99,
     hotItem: true,
     sale: true,
     quantity: 10,
     description: "Moving Light"
-})
+}) 
 DJ.create({
     name: "VocoPro KJ-7808RV Pro DJ and Karaoke Mixer",
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/35NbgYU",
+    price: 589.99,
     hotItem: false,
     sale: true,
     quantity: 10,
@@ -283,8 +284,8 @@ DJ.create({
 })
 DJ.create({
     name: "The Singing Machine Groove XL Karaoke Machine",
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/3d7ucWk",
+    price: 129.99,
     hotItem: false,
     sale: false,
     quantity: 10,
@@ -292,8 +293,8 @@ DJ.create({
 });
 DJ.create({
     name: "Odyssey Flite Zone 1200 Turntable Case",
-    imgURL: null,
-    price: 0.0,
+    imgURL:  "https://bit.ly/3vTMqRG",
+    price: 97.99,
     hotItem: false,
     sale: false,
     quantity: 10,
@@ -301,8 +302,8 @@ DJ.create({
 });
 DJ.create({
     name: 'Odyssey KLP2BLK Stackable Record Utility Case for 12" Vinyl Records and LPs',
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/3zVFfvK",
+    price: 59.99,
     hotItem: false,
     sale: false,
     quantity: 10,
@@ -310,8 +311,8 @@ DJ.create({
 });
 DJ.create({
     name: "Odyssey FZGS12CDJW Glide Style DJ Coffin Case",
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/3wUoKy7",
+    price: 349.99,
     hotItem: false,
     sale: true,
     quantity: 10,
@@ -322,8 +323,8 @@ DJ.create({
 
 lighting.create({
     name: "Blizzard LOOP Moving-head RGBW LED Linear Multi-beam Effect with LED Rings",
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/3h0qf77",
+    price: 1499.99,
     hotItem: true,
     sale: false,
     quantity: 10,
@@ -331,8 +332,8 @@ lighting.create({
 });
 lighting.create({
     name: "CHAUVET Professional Rogue R3 Spot Moving-Head LED Spotlight",
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/3zPxtDz",
+    price: 2799.99,
     hotItem: true,
     sale: true,
     quantity: 10,
@@ -340,8 +341,8 @@ lighting.create({
 });
 lighting.create({
     name: "Blizzard TOURnado WiMAX 7 RGBAW+L+UV LED Outdoor-Rated PAR Wash Light",
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/3x7oN9y",
+    price: 1199.99,
     hotItem: true,
     sale: true,
     quantity: 10,
@@ -349,8 +350,8 @@ lighting.create({
 });
 lighting.create({
     name: "CHAUVET Professional Ovation P-56VW Variable White LED PAR Light",
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/3jcGbWj",
+    price: 900.00,
     hotItem: true,
     sale: false,
     quantity: 10,
@@ -358,8 +359,8 @@ lighting.create({
 });
 lighting.create({
     name: "VEI PULSAR XENON STROBE",
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/2SW5scY",
+    price: 21.0,
     hotItem: false,
     sale: false,
     quantity: 10,
@@ -367,8 +368,8 @@ lighting.create({
 });
 lighting.create({
     name: "CHAUVET DJ Shocker 2 Warm White COB LED Dual Zone Blinder Light",
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/3jbxkEo",
+    price: 499.99,
     hotItem: false,
     sale: true,
     quantity: 10,
@@ -376,8 +377,8 @@ lighting.create({
 });
 lighting.create({
     name: "American DJ VF400 400W Fog Machine",
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/3vYOFDb",
+    price: 53.99,
     hotItem: false,
     sale: true,
     quantity: 10,
@@ -385,8 +386,8 @@ lighting.create({
 });
 lighting.create({
     name: "CHAUVET DJ Hurricane Bubble Haze Machine",
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/3gUT71S",
+    price: 499.99,
     hotItem: false,
     sale: false,
     quantity: 10,
@@ -394,8 +395,8 @@ lighting.create({
 });
 lighting.create({
     name: "ETC CS20 20-Fader ColorSource Lighting Console (40-Channel/Device)",
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/2SUhPpT",
+    price: 1835.0,
     hotItem: false,
     sale: true,
     quantity: 10,
@@ -403,8 +404,8 @@ lighting.create({
 });
 lighting.create({
     name: "CHAUVET DJ Data Stream 4 DMX-512 Optical Splitter",
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/3vV1sXi",
+    price: 159.99,
     hotItem: false,
     sale: false,
     quantity: 10,
@@ -416,8 +417,8 @@ lighting.create({
 
 sound.create({
     name: "Shure QLXD124/85 Digital Wireless Combo Microphone System (G50: 470 to 534 MHz)",
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/2SpWkgl",
+    price: 1439.99,
     hotItem: false,
     sale: true,
     quantity: 10,
@@ -425,8 +426,8 @@ sound.create({
 });
 sound.create({
     name: "VocoPro UDH-CHOIR-8 Handheld Wireless Microphone Package with Carry Bag Kit (900 MHz Band)",
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/3dbieLz",
+    price: 399.95,
     hotItem: true,
     sale: false,
     quantity: 10,
@@ -434,8 +435,8 @@ sound.create({
 });
 sound.create({
     name: 'Electro-Voice ZLX-12BT 12" 2-Way 1000W Powered Loudspeaker Kit with Two Speakers, Stands, Covers, and Cables',
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/3xVsb7L",
+    price: 949.0,
     hotItem: false,
     sale: false,
     quantity: 10,
@@ -443,8 +444,8 @@ sound.create({
 });
 sound.create({
     name: 'JBL EON615 Two-Way 15" 1000W Powered Portable PA Speaker with Bluetooth Control',
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/2TUEOkF",
+    price: 525.0,
     hotItem: false,
     sale: false,
     quantity: 10,
@@ -452,8 +453,8 @@ sound.create({
 });
 sound.create({
     name: "Allen & Heath SQ-5 48-Channel / 36-Bus Digital Mixer with 16+1 Motorized Faders",
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/3gRP9GY",
+    price: 3199.0,
     hotItem: false,
     sale: false,
     quantity: 10,
@@ -461,8 +462,8 @@ sound.create({
 });
 sound.create({
     name: "Yamaha MG12XU 12-Input Mixer with Built-In FX and 2-In/2-Out USB Interface",
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/3gTgR6r",
+    price: 344.99,
     hotItem: true,
     sale: false,
     quantity: 10,
@@ -470,8 +471,8 @@ sound.create({
 });
 sound.create({
     name: "MOTU M4 Desktop 4x4 USB Type-C Audio/MIDI Interface",
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/3vYSnN7",
+    price: 239.95,
     hotItem: false,
     sale: false,
     quantity: 10,
@@ -479,8 +480,8 @@ sound.create({
 });
 sound.create({
     name: "Shure SM58-LC Vocal Microphone",
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/3xOGLO5",
+    price: 99.0,
     hotItem: false,
     sale: false,
     quantity: 10,
@@ -488,8 +489,8 @@ sound.create({
 });
 sound.create({
     name: "Shure SM57-LC Handheld Dynamic Microphone Stage Kit",
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/3gU3v9X",
+    price: 99.0,
     hotItem: false,
     sale: true,
     quantity: 10,
@@ -497,8 +498,8 @@ sound.create({
 });
 sound.create({
     name: "Audio-Technica ATH-M50x Closed-Back Monitor Headphones (Black)",
-    imgURL: null,
-    price: 0.0,
+    imgURL: "https://bit.ly/2T660wP",
+    price: 149.0,
     hotItem: false,
     sale: false,
     quantity: 10,
