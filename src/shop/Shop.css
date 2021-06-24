@@ -1,3 +1,31 @@
 .jumbotron-container{
     text-align: left;
 }
+
+.shop-header{
+    font-size: 70px;
+}
+
+.dj-container{
+    background-color: #eeeeee;
+    padding-right: 0px;
+}
+.dj-row{
+    padding:15px;
+}
+
+.lighting-container{
+    background-color: #eeeeee;
+}
+
+.lighting-row{
+    padding:15px;
+}
+
+.sound-container{
+    background-color: #eeeeee;
+}
+
+.soung-row{
+    padding:15px;
+}
