@@ -70,7 +70,6 @@ render(){
                                     src={dj_carousel1}
                                     alt="Second slide"
                                     />
-
                                     <Carousel.Caption>
                                     <h3>Second slide label</h3>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -120,31 +119,40 @@ render(){
             </div>
 
             <div className="bottomArea">
-            <h1><b>Shop Now</b></h1>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
+                <h1 className="shop-header"><b>Shop All</b></h1>
 
-                                <Row>
-                                <div className="custom-jumbotron">
-                                    <h1>DJ Equipment</h1>
-                                    <ItemCard itemArray={this.state.itemArray}/>
-                                </div> 
-                                </Row>
-                                <Row>
-                                <div className="custom-jumbotron">
-                                    <h1>Lighting</h1>
-                                    <ItemCard itemArray={this.state.itemArray2}/>
-                                </div> 
-                                </Row>
-                                <Row>
-                                <div className="custom-jumbotron">
-                                    <h1>Sound</h1>
-                                    <ItemCard itemArray={this.state.itemArray3}/>
-                                </div> 
-                                </Row>
-                           
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
+                <Row className="dj-row">
+                <div className="dj-container">
+                    <h1>DJ Equipment</h1>
+                    <br/>
+                    <ItemCard itemArray={this.state.itemArray}/>
+                </div> 
+                </Row>
+                <br/>
+                <br/>
+                <Row className="container-fluid">
+                <div className="lighting-container">
+                    <h1>Lighting</h1>
+                    <br/>
+                    <ItemCard itemArray={this.state.itemArray2}/>
+                </div> 
+                </Row>
+                <br/>
+                <br/>
+                <Row className="container-fluid">
+                <div className="sound-container">
+                    <h1>Sound</h1>
+                    <br/>
+                    <ItemCard itemArray={this.state.itemArray3}/>
+                </div> 
+                </Row>
+                <br/>
+                <br/>       
             </div>
 
 

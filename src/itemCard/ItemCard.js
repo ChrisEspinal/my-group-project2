@@ -7,9 +7,15 @@ import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { CardDeck} from 'react-bootstrap';
 import { Modal, Button } from "react-bootstrap";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faMinus } from '@fortawesome/free-solid-svg-icons'
 
 import {incCart, decCart,add_item} from "../actions/indexAction";
 import {useSelector,useDispatch} from 'react-redux';
+
+const plusBtn = <FontAwesomeIcon icon={faPlus}/>
+const minusBtn = <FontAwesomeIcon icon={faMinus}/>
 
 
 const ItemCard = (props) => {
@@ -42,9 +48,9 @@ const ItemCard = (props) => {
                     </Card.Body>
                     <Card.Footer>
                         <Row>
-                            <Col sm={12} lg={6}>
+                            <Col sm={12} lg={4}>
                         <div>
-                            <Button variant="warning" className="btns" onClick={handleShow} data-target=".kf-modal-lg">
+                            <Button variant="info" className="btns" onClick={handleShow} data-target=".kf-modal-lg">
                                 View Product
                             </Button>
                         </div>
@@ -68,10 +74,19 @@ const ItemCard = (props) => {
                                 </Button>
                             </Modal.Footer>
                         </Modal>
-                        <Col sm={12} lg={6}>
+                        <Col></Col>
+                        <Col></Col>
+                        <Col sm={12} lg={2}>
                         <div>
                         {/* <Link to="/cart"> */}
-                        <Button variant="primary" className="btns" onClick={()=>(dispatch(add_item(itemArray.id)),dispatch(incCart()))}>Add to Cart</Button>
+                        <i className="btns" onClick={()=>(dispatch(add_item(itemArray.id)),dispatch(incCart()))}>{minusBtn}</i>
+                        {/* </Link> */}
+                        </div>
+                        </Col>
+                        <Col sm={12} lg={2}>
+                        <div>
+                        {/* <Link to="/cart"> */}
+                        <i className="btns" onClick={()=>(dispatch(add_item(itemArray.id)),dispatch(incCart()))}>{plusBtn}</i>
                         {/* </Link> */}
                         </div>
                         </Col>

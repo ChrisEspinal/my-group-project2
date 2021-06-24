@@ -11,7 +11,7 @@ let server = app.listen(0, () => {
     console.log('Listening', server.address().port)
   })
 
-var sequelize = new Sequelize('postgres://postgres:peekaboo@localhost:5432/postgres');
+var sequelize = new Sequelize('postgres://postgres:Pg3600@localhost:3001/postgres');
 
 // Define databases
 let DJ = sequelize.define('djs',{
