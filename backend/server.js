@@ -123,25 +123,66 @@ app.get('/shop', async function(request, response){
 
     response.json({need,need2,need3});
 })
+app.get('/HotItems', async function(request, response){
+
+    let need = await DJ.findAll({
+        where:{
+            hotItem: true
+        }
+    });
+    let need2 = await lighting.findAll({
+        where:{
+            hotItem: true
+        }
+    });
+    let need3 =await sound.findAll({
+        where:{
+            hotItem: true
+        }
+    });
+
+    response.json({need,need2,need3});
+})
+app.get('/Sale', async function(request, response){
+
+    let need = await DJ.findAll({
+        where:{
+            sale: true
+        }
+    });
+    let need2 = await lighting.findAll({
+        where:{
+            sale: true
+        }
+    });
+    let need3 =await sound.findAll({
+        where:{
+            sale: true
+        }
+    });
+
+    response.json({need,need2,need3});
+})
 
 app.post('/cart', async function(request, response){
     console.log("Searching...")
     console.log(request.body);
-    let items =[];
-    for(let i =0; i<request.body.length;i++){
-        console.log(request.body[i]);
-        // DJ.findOne({
-        //     where:{
-        //         id: request.body[i]
-        //     }
-        // }).then(function(dj){
-        //     if(!dj){
-
-        //     }else{
-        //         response.json(dj)
-        //     }
-        // })
-    }
+    let items = await DJ.findAll();
+    // for(let i =0; i<request.body.length;i++){
+    //     console.log(request.body[i]);
+    //     items.push(
+    //         DJ.findOne({
+    //             where:{
+    //                 id: request.body[i]
+    //             }
+    //     }))
+    //     // .then(function(dj){
+    //     //     console.log(dj);
+    //     //     items.push(dj);
+    //     //     console.log("This is the new array")
+    //     //     console.log(items);
+    //     // })
+    // }
 
     response.json(items);
 })
@@ -185,6 +226,8 @@ DJ.create({
     name: "American DJ Focus Spot 5Z LED Light",
     imgURL: null,
     price: 0.0,
+    hotItem: true,
+    sale: false,
     quantity: 10,
     description: "Moving Light"
 })
@@ -192,6 +235,8 @@ DJ.create({
     name: "Pioneer DJ DDJ-FLX6 4-Channel DJ Controller for Serato DJ Pro and rekordbox dj",
     imgURL: null,
     price: 0.0,
+    hotItem: true,
+    sale: true,
     quantity: 10,
     description: "Moving Light"
 })
@@ -199,6 +244,8 @@ DJ.create({
     name: "Denon DJ Prime 4 Professional 4-Channel DJ Controller",
     imgURL: null,
     price: 0.0,
+    hotItem: false,
+    sale: true,
     quantity: 10,
     description: "Moving Light"
 })
@@ -206,6 +253,8 @@ DJ.create({
     name: "Reloop ELITE 2-Channel DVS Battle Mixer for Serato DJ Pro",
     imgURL: null,
     price: 0.0,
+    hotItem: true,
+    sale: true,
     quantity: 10,
     description: "Moving Light"
 })
@@ -213,6 +262,8 @@ DJ.create({
     name: "Roland DJ-202 Serato DJ Controller",
     imgURL: null,
     price: 0.0,
+    hotItem: true,
+    sale: false,
     quantity: 10,
     description: "Moving Light"
 })
@@ -220,6 +271,8 @@ DJ.create({
     name: "Pioneer DJ PLX-500 Direct-Drive Professional Turntable",
     imgURL: null,
     price: 0.0,
+    hotItem: true,
+    sale: true,
     quantity: 10,
     description: "Moving Light"
 })
@@ -227,6 +280,8 @@ DJ.create({
     name: "VocoPro KJ-7808RV Pro DJ and Karaoke Mixer",
     imgURL: null,
     price: 0.0,
+    hotItem: false,
+    sale: true,
     quantity: 10,
     description: "Moving Light"
 })
@@ -234,6 +289,8 @@ DJ.create({
     name: "The Singing Machine Groove XL Karaoke Machine",
     imgURL: null,
     price: 0.0,
+    hotItem: false,
+    sale: false,
     quantity: 10,
     description: "Moving Light"
 });
@@ -241,6 +298,8 @@ DJ.create({
     name: "Odyssey Flite Zone 1200 Turntable Case",
     imgURL: null,
     price: 0.0,
+    hotItem: false,
+    sale: false,
     quantity: 10,
     description: "Moving Light"
 });
@@ -248,6 +307,8 @@ DJ.create({
     name: 'Odyssey KLP2BLK Stackable Record Utility Case for 12" Vinyl Records and LPs',
     imgURL: null,
     price: 0.0,
+    hotItem: false,
+    sale: false,
     quantity: 10,
     description: "Moving Light"
 });
@@ -255,6 +316,8 @@ DJ.create({
     name: "Odyssey FZGS12CDJW Glide Style DJ Coffin Case",
     imgURL: null,
     price: 0.0,
+    hotItem: false,
+    sale: true,
     quantity: 10,
     description: "Moving Light"
 });
@@ -265,6 +328,8 @@ lighting.create({
     name: "Blizzard LOOP Moving-head RGBW LED Linear Multi-beam Effect with LED Rings",
     imgURL: null,
     price: 0.0,
+    hotItem: true,
+    sale: false,
     quantity: 10,
     description: "Moving Light"
 });
@@ -272,6 +337,8 @@ lighting.create({
     name: "CHAUVET Professional Rogue R3 Spot Moving-Head LED Spotlight",
     imgURL: null,
     price: 0.0,
+    hotItem: true,
+    sale: true,
     quantity: 10,
     description: "Moving Light"
 });
@@ -279,6 +346,8 @@ lighting.create({
     name: "Blizzard TOURnado WiMAX 7 RGBAW+L+UV LED Outdoor-Rated PAR Wash Light",
     imgURL: null,
     price: 0.0,
+    hotItem: true,
+    sale: true,
     quantity: 10,
     description: "Moving Light"
 });
@@ -286,6 +355,8 @@ lighting.create({
     name: "CHAUVET Professional Ovation P-56VW Variable White LED PAR Light",
     imgURL: null,
     price: 0.0,
+    hotItem: true,
+    sale: false,
     quantity: 10,
     description: "Moving Light"
 });
@@ -293,6 +364,8 @@ lighting.create({
     name: "VEI PULSAR XENON STROBE",
     imgURL: null,
     price: 0.0,
+    hotItem: false,
+    sale: false,
     quantity: 10,
     description: "Moving Light"
 });
@@ -300,6 +373,8 @@ lighting.create({
     name: "CHAUVET DJ Shocker 2 Warm White COB LED Dual Zone Blinder Light",
     imgURL: null,
     price: 0.0,
+    hotItem: false,
+    sale: true,
     quantity: 10,
     description: "Moving Light"
 });
@@ -307,6 +382,8 @@ lighting.create({
     name: "American DJ VF400 400W Fog Machine",
     imgURL: null,
     price: 0.0,
+    hotItem: false,
+    sale: true,
     quantity: 10,
     description: "Moving Light"
 });
@@ -314,6 +391,8 @@ lighting.create({
     name: "CHAUVET DJ Hurricane Bubble Haze Machine",
     imgURL: null,
     price: 0.0,
+    hotItem: false,
+    sale: false,
     quantity: 10,
     description: "Moving Light"
 });
@@ -321,6 +400,8 @@ lighting.create({
     name: "ETC CS20 20-Fader ColorSource Lighting Console (40-Channel/Device)",
     imgURL: null,
     price: 0.0,
+    hotItem: false,
+    sale: true,
     quantity: 10,
     description: "Moving Light"
 });
@@ -328,6 +409,8 @@ lighting.create({
     name: "CHAUVET DJ Data Stream 4 DMX-512 Optical Splitter",
     imgURL: null,
     price: 0.0,
+    hotItem: false,
+    sale: false,
     quantity: 10,
     description: "Moving Light"
 });
@@ -339,6 +422,8 @@ sound.create({
     name: "Shure QLXD124/85 Digital Wireless Combo Microphone System (G50: 470 to 534 MHz)",
     imgURL: null,
     price: 0.0,
+    hotItem: false,
+    sale: true,
     quantity: 10,
     description: "Moving Light"
 });
@@ -346,6 +431,8 @@ sound.create({
     name: "VocoPro UDH-CHOIR-8 Handheld Wireless Microphone Package with Carry Bag Kit (900 MHz Band)",
     imgURL: null,
     price: 0.0,
+    hotItem: true,
+    sale: false,
     quantity: 10,
     description: "Moving Light"
 });
@@ -353,6 +440,8 @@ sound.create({
     name: 'Electro-Voice ZLX-12BT 12" 2-Way 1000W Powered Loudspeaker Kit with Two Speakers, Stands, Covers, and Cables',
     imgURL: null,
     price: 0.0,
+    hotItem: false,
+    sale: false,
     quantity: 10,
     description: "Moving Light"
 });
@@ -360,6 +449,8 @@ sound.create({
     name: 'JBL EON615 Two-Way 15" 1000W Powered Portable PA Speaker with Bluetooth Control',
     imgURL: null,
     price: 0.0,
+    hotItem: false,
+    sale: false,
     quantity: 10,
     description: "Moving Light"
 });
@@ -367,6 +458,8 @@ sound.create({
     name: "Allen & Heath SQ-5 48-Channel / 36-Bus Digital Mixer with 16+1 Motorized Faders",
     imgURL: null,
     price: 0.0,
+    hotItem: false,
+    sale: false,
     quantity: 10,
     description: "Moving Light"
 });
@@ -374,6 +467,8 @@ sound.create({
     name: "Yamaha MG12XU 12-Input Mixer with Built-In FX and 2-In/2-Out USB Interface",
     imgURL: null,
     price: 0.0,
+    hotItem: true,
+    sale: false,
     quantity: 10,
     description: "Moving Light"
 });
@@ -381,6 +476,8 @@ sound.create({
     name: "MOTU M4 Desktop 4x4 USB Type-C Audio/MIDI Interface",
     imgURL: null,
     price: 0.0,
+    hotItem: false,
+    sale: false,
     quantity: 10,
     description: "Moving Light"
 });
@@ -388,6 +485,8 @@ sound.create({
     name: "Shure SM58-LC Vocal Microphone",
     imgURL: null,
     price: 0.0,
+    hotItem: false,
+    sale: false,
     quantity: 10,
     description: "Moving Light"
 });
@@ -395,6 +494,8 @@ sound.create({
     name: "Shure SM57-LC Handheld Dynamic Microphone Stage Kit",
     imgURL: null,
     price: 0.0,
+    hotItem: false,
+    sale: true,
     quantity: 10,
     description: "Moving Light"
 });
@@ -402,6 +503,8 @@ sound.create({
     name: "Audio-Technica ATH-M50x Closed-Back Monitor Headphones (Black)",
     imgURL: null,
     price: 0.0,
+    hotItem: false,
+    sale: false,
     quantity: 10,
     description: "Moving Light"
 });
