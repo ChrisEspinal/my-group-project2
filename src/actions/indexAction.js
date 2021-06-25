@@ -27,6 +27,5 @@ export const add_item = (newItem) =>{
     return{
         type: "add_item",
         newItem: newItem,
-        amount: 1,
     };
 }
