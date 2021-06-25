@@ -69,7 +69,7 @@ const ItemCard = (props) => {
                                 </div>      
                             </Modal.Body>
                             <Modal.Footer>
-                                <Button variant="secondary" onClick={handleClose,()=>dispatch(incCart(),add_item(itemArray.id))}>
+                                <Button variant="secondary" onClick={handleClose,()=>dispatch(incCart(),add_item(itemArray))}>
                                 Add To Cart
                                 </Button>
                             </Modal.Footer>
@@ -79,7 +79,7 @@ const ItemCard = (props) => {
                         <Col sm={12} lg={2}>
                         <div>
                         {/* <Link to="/cart"> */}
-                        <i className="btns" onClick={()=>(dispatch(add_item(itemArray.id)),dispatch(incCart()))}>{minusBtn}</i>
+                        <i className="btns" onClick={()=>(dispatch(add_item(itemArray.id)),dispatch(decCart()))}>{minusBtn}</i>
                         {/* </Link> */}
                         </div>
                         </Col>

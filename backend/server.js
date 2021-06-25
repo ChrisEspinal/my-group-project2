@@ -1,6 +1,7 @@
 let express = require('express');
 let {Sequelize} = require('Sequelize');
 const cors =require('cors');
+const { response } = require('express');
 let app =express();
 
 app.use(cors())
@@ -11,7 +12,7 @@ let server = app.listen(0, () => {
     console.log('Listening', server.address().port)
   })
 
-var sequelize = new Sequelize('postgres://postgres:Pg3600@localhost:3001/postgres');
+var sequelize = new Sequelize('postgres://postgres:peekaboo@localhost:5432/postgres');
 
 // Define databases
 let DJ = sequelize.define('djs',{
@@ -50,12 +51,20 @@ let sound = sequelize.define('sound',{
 
 sound.sync()
 
+
+
 let Users =sequelize.define('users',{
     username: Sequelize.STRING,
     email: Sequelize.STRING,
     password: Sequelize.STRING,
+    creditCard: Sequelize.INTEGER,
+    exp: Sequelize.DATE,
+    cvv: Sequelize.INTEGER,
+    billingAddress: Sequelize.STRING,
+    shippingAddress: Sequelize.STRING,
 })
 
+Users.sync()
 
 // Define functions for password verification
 // The first one verifies the password, is now working properly
@@ -64,8 +73,6 @@ app.post('/signIn', async function(request,response){
 
     let userName = request.body.userName;
     let passWord = request.body.passWord;
-
-    Users.sync()
 
     let test = await Users.findOne({
         where:{
@@ -114,6 +121,24 @@ app.post('/register', function(request, response){
         }
     })
    
+})
+
+app.put('/checkout', async function(request, response){
+
+    console.log("Updating")
+ 
+    Users.update({
+        creditCard: request.body.ccNumber,
+        exp: request.body.expDate,
+        cvv: request.body.ccv,
+        billingAddress: request.body.billingAddress,
+        shippingAddress: request.body.shippingAddress,
+    },
+        {where: {
+            username: request.body.username
+        }
+    });
+     
 })
 
 app.get('/shop', async function(request, response){

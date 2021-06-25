@@ -53,7 +53,7 @@ componentDidMount(){
             console.log("This is the content");
             for(let j=0; j<values.length;j++){
                 for(let i =0; i< content.length;i++){
-                    if(content[i].id == values[j] && !arr.includes(content[i])){
+                    if(content[i].id == values[j].item && !arr.includes(content[i])){
                         arr.push(content[i])            
                     }
                 }

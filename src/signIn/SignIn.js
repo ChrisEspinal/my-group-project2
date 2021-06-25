@@ -30,11 +30,11 @@ const SignIn = () => {
         // setUsername("");
         // setPassword("");
 
-        const form = e.currentTarget;
-        if (form.checkValidity() === false) {
-          e.preventDefault();
-          e.stopPropagation();
-        }
+        // const form = e.currentTarget;
+        // if (form.checkValidity() === false) {
+        //   e.preventDefault();
+        //   e.stopPropagation();
+        // }
 
 
         let values = {
@@ -53,11 +53,13 @@ const SignIn = () => {
             const content = await rawResponse.json();
             console.log("This is the content");
             console.log(content);
+            console.log(username);
+
+
+            if(content==true){
+                dispatch(logIn(username));
+            }
             })();
-
-    
-
-        dispatch(logIn());
 
   
         console.log(rState);

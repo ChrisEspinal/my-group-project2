@@ -1,6 +1,7 @@
-export const logIn = () =>{
+export const logIn = (username) =>{
     return{
-        type: "log-in"
+        type: "log-in",
+        payload: username,
     };
 }
 
@@ -26,5 +27,6 @@ export const add_item = (newItem) =>{
     return{
         type: "add_item",
         newItem: newItem,
+        amount: 1,
     };
 }
