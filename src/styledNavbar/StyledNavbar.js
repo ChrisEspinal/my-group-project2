@@ -18,10 +18,18 @@ const StyledNavbar = () => {
   let arr ={}
   let sign ={}
 
+  const logInTest = () =>{
+    alert("Logged in");
+
+  }
+  const logOutTest = () =>{
+    alert("Logged Out")
+  }
   {loggedIn ? arr =<React.Fragment>
               <LinkContainer to="/signIn">
                   <Nav.Link onClick={()=> dispatch(logOut())}>Sign Out</Nav.Link> 
               </LinkContainer>
+              {logInTest()}
 
                     <LinkContainer to="/cart">
                       <Nav.Link>
@@ -32,10 +40,12 @@ const StyledNavbar = () => {
                       </Nav.Link>
                     </LinkContainer>
                     </React.Fragment>
+                    
             : arr =<React.Fragment>
               <LinkContainer to="/signIn">
                   <Nav.Link>Sign In</Nav.Link> 
               </LinkContainer>
+              
 
                 <LinkContainer to="/signIn">
                   <Nav.Link>
@@ -44,7 +54,9 @@ const StyledNavbar = () => {
                     <span className="fa-layers-counter">{itemCart}</span>
                   </span>
                   </Nav.Link>
-                </LinkContainer></React.Fragment>}
+                </LinkContainer>
+                
+                </React.Fragment>}
   {loggedIn ? sign =<LinkContainer to="/cart">
                       <Nav.Link>
                       <span className="fa-layers fa-fw fa-2x">
@@ -82,12 +94,16 @@ const StyledNavbar = () => {
                   <Nav.Link>Shop</Nav.Link>
                 </LinkContainer>
 
+
                   <NavDropdown title="See More" id="collasible-nav-dropdown">
                     <LinkContainer to="/hotItems">
                       <NavDropdown.Item>Hot Items</NavDropdown.Item>
                     </LinkContainer>
                     <LinkContainer to="/sale">
                       <NavDropdown.Item>Sale</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/about">
+                    <NavDropdown.Item>About</NavDropdown.Item>
                     </LinkContainer>
                   </NavDropdown>
 

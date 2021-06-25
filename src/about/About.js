@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import './Sale.css';
+import './About.css';
 import axios from "axios";
 import most_popular from '../assets/most_popular.jpeg';
 import ItemCard from '../itemCard/ItemCard'
@@ -16,7 +16,7 @@ import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import {incCart, decCart} from "../actions/indexAction";;
 
 
-class HotItems extends React.Component{
+class About extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -125,4 +125,4 @@ componentDidMount(){
 
 }
 
-export default HotItems;
+export default About;
