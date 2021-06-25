@@ -217,7 +217,7 @@ app.put('/sound', async function(request,response){
 
 let val = true;
 
-if(val === false){ 
+if(val = true){ 
 
 DJ.create({
     name: "American DJ Focus Spot 5Z LED Light",
