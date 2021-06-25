@@ -39,30 +39,34 @@ componentDidMount(){
 
     let arr =[];
     if(this.state.sold === ""){
-        (async () => {
-            const rawResponse = await fetch('/cart', {
-                method: 'POST',
-                headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(values)
-            });
-            const content = await rawResponse.json();
-            console.log(content);
-            console.log("This is the content");
-            for(let j=0; j<values.length;j++){
-                for(let i =0; i< content.length;i++){
-                    if(content[i].id == values[j].item && !arr.includes(content[i])){
-                        arr.push(content[i])            
-                    }
-                }
-            }
 
-            })();
-            this.setState({
-                sold: arr,
-            })
+        console.log(values);
+        // (async () => {
+        //     const rawResponse = await fetch('/cart', {
+        //         method: 'POST',
+        //         headers: {
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json'
+        //         },
+        //         body: JSON.stringify(values)
+        //     });
+        //     const content = await rawResponse.json();
+        //     console.log(content);
+        //     console.log("This is the content");
+
+        //     console.log();
+        //     // for(let j=0; j<values.length;j++){
+        //     //     for(let i =0; i< content.length;i++){
+        //     //         if(content[i].id == values[j].item && !arr.includes(content[i])){
+        //     //             arr.push(content[i])            
+        //     //         }
+        //     //     }
+        //     // }
+
+        //     })();
+        //     this.setState({
+        //         sold: arr,
+        //     })
     }
 
 
@@ -74,7 +78,7 @@ componentDidMount(){
 
 
                 <div>   
-                    
+
                 </div>
 
 
