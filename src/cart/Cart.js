@@ -55,6 +55,7 @@ componentDidMount(){
     if(this.state.sold === ""){
         arr = values;
         console.log(arr);
+        console.log(arr[0])
 
         this.setState({
             itemArray: arr

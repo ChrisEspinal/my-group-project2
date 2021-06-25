@@ -27,5 +27,13 @@ export const add_item = (newItem) =>{
     return{
         type: "add_item",
         newItem: newItem,
+        
+    };
+}
+export const remove_item = (newItem,id) =>{
+    return{
+        type: "remove_item",
+        newItem: newItem,
+        id: id
     };
 }
