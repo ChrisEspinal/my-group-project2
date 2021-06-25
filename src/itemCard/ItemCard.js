@@ -69,7 +69,7 @@ const ItemCard = (props) => {
                                 </div>      
                             </Modal.Body>
                             <Modal.Footer>
-                                <Button variant="secondary" onClick={handleClose,()=>dispatch(incCart(),add_item(itemArray.id))}>
+                                <Button variant="secondary" onClick={handleClose,()=>dispatch(incCart(),add_item(itemArray))}>
                                 Add To Cart
                                 </Button>
                             </Modal.Footer>

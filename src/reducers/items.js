@@ -17,7 +17,7 @@ const Items = (state =initialUserState, action) =>{
             // }else{    
                 return { 
                 ...state,
-                arr: [...state.arr, {item: action.newItem, amount:action.amount}]}
+                arr: [...state.arr, {item: action.newItem}]}
             // }}
 
         
