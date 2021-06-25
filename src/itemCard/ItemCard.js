@@ -36,7 +36,7 @@ const ItemCard = (props) => {
     const product = props.itemArray.map((itemArray) => {
         return (
             <li key={itemArray.id}>  
-                <Card>
+                <Card className="card-view">
                     <Card.Img variant="top" src={itemArray.imgURL} />
                     <Card.Body>
                         <Card.Title>{itemArray.name}</Card.Title>
@@ -93,7 +93,6 @@ const ItemCard = (props) => {
                         </Row>
                     </Card.Footer>
                 </Card>
-            
             <br/>
             </li>
             )});

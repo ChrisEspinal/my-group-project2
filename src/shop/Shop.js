@@ -8,6 +8,9 @@ import { CardDeck, Card } from 'react-bootstrap';
 import axios from 'axios';
 import ItemCard from '../itemCard/ItemCard';
 import dj_carousel1 from '../assets/dj_carousel1.png';
+import dj_carousel3 from '../assets/dj_carousel3.jpeg';
+import dj_carousel4 from '../assets/dj_carousel4.jpeg';
+import dj_carousel5 from '../assets/dj_carousel5.jpeg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
@@ -56,35 +59,35 @@ render(){
                                 <Carousel.Item>
                                     <img
                                     className="d-block w-100"
-                                    src={dj_carousel1}
+                                    src={dj_carousel3}
                                     alt="First slide"
                                     />
-                                    <Carousel.Caption>
+                                    {/* <Carousel.Caption>
                                     <h3>First slide label</h3>
                                     <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                    </Carousel.Caption>
+                                    </Carousel.Caption> */}
                                 </Carousel.Item>
                                 <Carousel.Item>
                                     <img
                                     className="d-block w-100"
-                                    src={dj_carousel1}
+                                    src={dj_carousel4}
                                     alt="Second slide"
                                     />
-                                    <Carousel.Caption>
+                                    {/* <Carousel.Caption>
                                     <h3>Second slide label</h3>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    </Carousel.Caption>
+                                    </Carousel.Caption> */}
                                 </Carousel.Item>
                                 <Carousel.Item>
                                     <img
                                     className="d-block w-100"
-                                    src={dj_carousel1}
+                                    src={dj_carousel5}
                                     alt="Third slide"
                                     />
-                                    <Carousel.Caption>
+                                    {/* <Carousel.Caption>
                                     <h3>Third slide label</h3>
                                     <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                                    </Carousel.Caption>
+                                    </Carousel.Caption> */}
                                 </Carousel.Item>
                             </Carousel>
                         </div>
@@ -103,11 +106,11 @@ render(){
                                     <Container className="jumbotron-text">
                                         <h1 className="jumbotron-header"><b>Thinking about being a DJ?</b></h1>
                                         <p>
-                                            We have the equipment to get you started! Check out Hot Deals to view our 
+                                            We have the equipment to get you started! Check out Most Popular to view our 
                                             latest items.
                                         </p>
                                     <Link to="/hotItems">
-                                    <Button variant="primary">Learn more</Button>
+                                    <Button variant="primary">Go Now</Button>
                                     </Link>
                                 </Container>
                                     </Col>
@@ -135,7 +138,7 @@ render(){
                 </Row>
                 <br/>
                 <br/>
-                <Row className="container-fluid">
+                <Row className="lighting-row">
                 <div className="lighting-container">
                     <h1>Lighting</h1>
                     <br/>
@@ -144,7 +147,7 @@ render(){
                 </Row>
                 <br/>
                 <br/>
-                <Row className="container-fluid">
+                <Row className="sound-row">
                 <div className="sound-container">
                     <h1>Sound</h1>
                     <br/>

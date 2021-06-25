@@ -102,9 +102,9 @@ const StyledNavbar = () => {
                     <LinkContainer to="/sale">
                       <NavDropdown.Item>Sale</NavDropdown.Item>
                     </LinkContainer>
-                    <LinkContainer to="/about">
+                    {/* <LinkContainer to="/about">
                     <NavDropdown.Item>About</NavDropdown.Item>
-                    </LinkContainer>
+                    </LinkContainer> */}
                   </NavDropdown>
 
                   {/* <LinkContainer to="/checkout">

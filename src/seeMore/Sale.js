@@ -69,7 +69,7 @@ componentDidMount(){
                  </Row>
                  <br/>
                  <br/>
-                 <Row className="container-fluid">
+                 <Row className="lighting-row">
                  <div className="lighting-container">
                      <h1>Lighting</h1>
                     <br/>
@@ -78,7 +78,7 @@ componentDidMount(){
                  </Row>
                  <br/>
                  <br/>
-                 <Row className="container-fluid">
+                 <Row className="sound-row">
                  <div className="sound-container">
                      <h1>Sound</h1>
                      <br/>

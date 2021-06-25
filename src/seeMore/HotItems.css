@@ -3,3 +3,27 @@
     margin: 0px;
     padding: 0px;
 }
+
+.dj-container{
+    background-color: #eeeeee;
+    padding-right: 0px;
+}
+.dj-row{
+    padding:15px;
+}
+
+.lighting-container{
+    background-color: #eeeeee;
+}
+
+.lighting-row{
+    padding:15px;
+}
+
+.sound-container{
+    background-color: #eeeeee;
+}
+
+.sound-row{
+    padding:15px;
+}
