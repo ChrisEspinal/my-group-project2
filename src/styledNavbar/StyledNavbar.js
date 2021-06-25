@@ -97,7 +97,7 @@ const StyledNavbar = () => {
 
                   <NavDropdown title="See More" id="collasible-nav-dropdown">
                     <LinkContainer to="/hotItems">
-                      <NavDropdown.Item>Hot Items</NavDropdown.Item>
+                      <NavDropdown.Item>Most Popular</NavDropdown.Item>
                     </LinkContainer>
                     <LinkContainer to="/sale">
                       <NavDropdown.Item>Sale</NavDropdown.Item>
@@ -107,9 +107,9 @@ const StyledNavbar = () => {
                     </LinkContainer>
                   </NavDropdown>
 
-                  <LinkContainer to="/checkout">
+                  {/* <LinkContainer to="/checkout">
                   <Nav.Link>Checkout</Nav.Link>
-                  </LinkContainer>
+                  </LinkContainer> */}
 
               </Nav>
 

@@ -49,31 +49,31 @@ const ItemCard = (props) => {
                     <Card.Footer>
                         <Row>
                             <Col sm={12} lg={4}>
-                        <div>
+                        {/* <div>
                             <Button variant="info" className="btns" onClick={handleShow} data-target=".kf-modal-lg">
                                 View Product
                             </Button>
-                        </div>
+                        </div> */}
                         </Col>
-                        <Modal size="lg"show={show} onHide={handleClose}>
+                        {/* <Modal size="md"show={show} onHide={handleClose} dialogClassName="modal">
                             <Modal.Header closeButton>
                                 <Modal.Title><b>{itemArray.name}</b></Modal.Title>
                             </Modal.Header>
                             <Modal.Body>
-                                <div className="embed-responsive embed-responsive-16by9"><img src={dj_modal_default} alt="image"/></div>
-                                
-                                <div className="embed-responsive embed-responsive-16by9">
-                                    <p>{itemArray.description}</p>
-                                    <br/>
-                                    <p>${itemArray.price}</p>
-                                </div>      
-                            </Modal.Body>
-                            <Modal.Footer>
-                                <Button variant="secondary" onClick={handleClose,()=>dispatch(incCart(),add_item(itemArray))}>
+                                <div className="embed-responsive ">
+                                <div >
+                                    <img src={itemArray.imgURL} alt="image"/>
+                                </div>
+                                 
+                                <div>
+                                 <Button variant="secondary" onClick={handleClose,()=>dispatch(incCart(),add_item(itemArray))}>
                                 Add To Cart
-                                </Button>
-                            </Modal.Footer>
-                        </Modal>
+                                </Button> 
+                                </div>
+
+                                </div>  
+                            </Modal.Body>
+                        </Modal> */}
                         <Col></Col>
                         <Col></Col>
                         <Col sm={12} lg={2}>
