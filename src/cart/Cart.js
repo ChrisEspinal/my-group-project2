@@ -57,6 +57,7 @@ componentDidMount(){
         // arr = values;
         arr = values;
         console.log(arr);
+        console.log(arr[0])
 
         this.setState({
             itemArray: arr

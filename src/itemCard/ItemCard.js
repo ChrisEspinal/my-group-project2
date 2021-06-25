@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faMinus } from '@fortawesome/free-solid-svg-icons'
 
-import {incCart, decCart,add_item} from "../actions/indexAction";
+import {incCart, decCart,add_item,remove_item} from "../actions/indexAction";
 import {useSelector,useDispatch} from 'react-redux';
 
 const plusBtn = <FontAwesomeIcon icon={faPlus}/>
@@ -80,7 +80,7 @@ const ItemCard = (props) => {
                         <Col sm={12} lg={2}>
                         <div>
                         {/* <Link to="/cart"> */}
-                        <i className="btns" onClick={()=>(dispatch(add_item(itemArray)),dispatch(decCart()))}>{minusBtn}</i>
+                        <i className="btns" onClick={()=>(dispatch(remove_item(itemArray,itemArray.id)),dispatch(decCart()))}>{minusBtn}</i>
                         {/* </Link> */}
                         </div>
                         </Col>
