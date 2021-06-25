@@ -6,10 +6,7 @@ import { Row, Col } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
-import { logIn } from "../actions/indexAction";
-import {LinkContainer} from 'react-router-bootstrap';
-import {useSelector, useDispatch} from 'react-redux';
-import {Navbar, Nav, NavDropdown} from 'react-bootstrap';
+import {useDispatch} from 'react-redux';
 
 const SignIn = () => {
     const [email, setEmail] = useState("");
@@ -17,11 +14,8 @@ const SignIn = () => {
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState("");
     const [validated, setValidated] = useState(false);
-    
-    
-
+        
     const dispatch = useDispatch();
-
 
     const handleSubmit = (e) => {
 
@@ -140,8 +134,7 @@ const SignIn = () => {
                             </Form.Group>
                         </Form.Row>
 
-                    
-                                <Button variant="primary"type="submit">Submit</Button>
+                        <Button variant="primary"type="submit">Submit</Button>
                             
                         </Form>
                         </div>

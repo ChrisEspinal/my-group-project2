@@ -15,25 +15,21 @@ const Checkout = () => {
     const [cvv, setCVV] = useState("");
     const [billingAddress, setBillingAddress] = useState("");
     const [shippingAddress, setShippingAddress] = useState("");
-    
-
     const [validated, setValidated] = useState(false);
 
     const user = useSelector((state)=> state.LoggedIn)
 
-    console.log(user.login);
+    // console.log(user.login);
     const handleSubmit = (e) => {
-
         const form = e.currentTarget;
         e.preventDefault();
+
         if (form.checkValidity() === false) {
           e.preventDefault();
           e.stopPropagation();
         }
     
         setValidated(true);
-
-
 
         let values = {
             username: user.username,
@@ -59,10 +55,8 @@ const Checkout = () => {
             console.log(content);
           })();
 
-    //     // alert(username + ', you have checkedout successfully!');
+         // alert(username + ', you have checkedout successfully!');
     };
-
-
 
         return (
             <div className="register-body">

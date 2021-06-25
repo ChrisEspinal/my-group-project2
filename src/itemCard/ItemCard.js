@@ -1,22 +1,16 @@
 import React, { useState } from 'react';
 import Card from 'react-bootstrap/Card'
 import './ItemCard.css';
-import dj_default from '../assets/dj_default.jpeg';
-import dj_modal_default from '../assets/dj_modal_default.jpeg';
 import { Row, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import { CardDeck} from 'react-bootstrap';
-import { Modal, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faMinus } from '@fortawesome/free-solid-svg-icons'
-
 import {incCart, decCart,add_item,remove_item} from "../actions/indexAction";
 import {useSelector,useDispatch} from 'react-redux';
 
 const plusBtn = <FontAwesomeIcon icon={faPlus}/>
-const minusBtn = <FontAwesomeIcon icon={faMinus}/>
-
+// const minusBtn = <FontAwesomeIcon icon={faMinus}/>
 
 const ItemCard = (props) => {
     
@@ -50,37 +44,13 @@ const ItemCard = (props) => {
                     <Card.Footer>
                         <Row>
                             <Col sm={12} lg={4}>
-                        {/* <div>
-                            <Button variant="info" className="btns" onClick={handleShow} data-target=".kf-modal-lg">
-                                View Product
-                            </Button>
-                        </div> */}
                         </Col>
-                        {/* <Modal size="md"show={show} onHide={handleClose} dialogClassName="modal">
-                            <Modal.Header closeButton>
-                                <Modal.Title><b>{itemArray.name}</b></Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>
-                                <div className="embed-responsive ">
-                                <div >
-                                    <img src={itemArray.imgURL} alt="image"/>
-                                </div>
-                                 
-                                <div>
-                                 <Button variant="secondary" onClick={handleClose,()=>dispatch(incCart(),add_item(itemArray))}>
-                                Add To Cart
-                                </Button> 
-                                </div>
-
-                                </div>  
-                            </Modal.Body>
-                        </Modal> */}
                         <Col></Col>
                         <Col></Col>
                         <Col sm={12} lg={2}>
                         <div>
                         {/* <Link to="/cart"> */}
-                        <i className="btns" onClick={()=>(dispatch(remove_item(itemArray,itemArray.id)),dispatch(decCart()))}>{minusBtn}</i>
+                        {/* <i className="btns" onClick={()=>(dispatch(remove_item(itemArray,itemArray.id)),dispatch(decCart()))}>{minusBtn}</i> */}
                         {/* </Link> */}
                         </div>
                         </Col>

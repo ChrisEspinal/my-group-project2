@@ -6,36 +6,20 @@ import { Row, Col } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye } from '@fortawesome/free-solid-svg-icons'
-import { logIn,logOut } from "../actions/indexAction";
-import {useSelector, useDispatch} from 'react-redux';//import this for redux
-import LoggedIn from "../reducers/loggedIn";// and this
+import { logIn } from "../actions/indexAction";
+import {useSelector, useDispatch} from 'react-redux';
 
 const SignIn = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState("");
-    const [validated, setValidated] = useState(false);
-
+    const [validated] = useState(false);
 
     const dispatch = useDispatch();
-
-
-    //Copy this line, use rState variable for if statement
     const rState = useSelector((state)=> state.LoggedIn);
   
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        // e.preventDefault();
-        // setUsername("");
-        // setPassword("");
-
-        // const form = e.currentTarget;
-        // if (form.checkValidity() === false) {
-        //   e.preventDefault();
-        //   e.stopPropagation();
-        // }
-
 
         let values = {
             userName: username,
@@ -51,25 +35,22 @@ const SignIn = () => {
                 body: JSON.stringify(values)
             });
             const content = await rawResponse.json();
-            console.log("This is the content");
-            console.log(content);
-            console.log(username);
-
+            // console.log("This is the content");
+            // console.log(content);
+            // console.log(username);
 
             if(content==true){
                 dispatch(logIn(username));
             }
             })();
 
-  
-        console.log(rState);
+        // console.log(rState);
 
     };
 
     const toggleViewPassword = () => {
         setShowPassword(showPassword ? false : true);
     };
-
 
     const eye = <FontAwesomeIcon icon={faEye}/>
 
@@ -155,9 +136,3 @@ const SignIn = () => {
     }
 
 export default SignIn;
-
-
-// Work on pvb
-// onChange check
-// push server
-// 

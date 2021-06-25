@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import './Shop.css';
 import { Jumbotron, Container, Carousel } from 'react-bootstrap';
 import { Row, Col } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { CardDeck, Card } from 'react-bootstrap';
 import axios from 'axios';
 import ItemCard from '../itemCard/ItemCard';
-import dj_carousel1 from '../assets/dj_carousel1.png';
 import dj_carousel3 from '../assets/dj_carousel3.jpeg';
 import dj_carousel4 from '../assets/dj_carousel4.jpeg';
 import dj_carousel5 from '../assets/dj_carousel5.jpeg';
@@ -15,9 +13,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
-import {incCart, decCart} from "../actions/indexAction";
-
-
 
 class Shop extends React.Component{
     constructor(props){
@@ -45,7 +40,6 @@ class Shop extends React.Component{
     }
 
 
-
 render(){
     return(
       
@@ -62,10 +56,6 @@ render(){
                                     src={dj_carousel3}
                                     alt="First slide"
                                     />
-                                    {/* <Carousel.Caption>
-                                    <h3>First slide label</h3>
-                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                    </Carousel.Caption> */}
                                 </Carousel.Item>
                                 <Carousel.Item>
                                     <img
@@ -73,10 +63,6 @@ render(){
                                     src={dj_carousel4}
                                     alt="Second slide"
                                     />
-                                    {/* <Carousel.Caption>
-                                    <h3>Second slide label</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    </Carousel.Caption> */}
                                 </Carousel.Item>
                                 <Carousel.Item>
                                     <img
@@ -84,10 +70,6 @@ render(){
                                     src={dj_carousel5}
                                     alt="Third slide"
                                     />
-                                    {/* <Carousel.Caption>
-                                    <h3>Third slide label</h3>
-                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                                    </Carousel.Caption> */}
                                 </Carousel.Item>
                             </Carousel>
                         </div>
@@ -160,25 +142,24 @@ render(){
 
 
             <footer className="footer bg-dark">
-                    <div className="container-fluid">
-                        <Row>
-                            <Col className="col-footer" sm={12} md={2}>
-                                {/* <img class="img-fluid footerImg" src={companyLogo}/> */}
-                            </Col>
-                            <Col className="copyright" sm={12} md={7}>
-                                <p>Copyright © 2020-2021 Our LLC. All Rights Reserved.</p>
-                            </Col>
-                            <Col sm={12} md={3} className="footer-links">
-                                <a href="https://facebook.com" target="_blank">
-                                <FontAwesomeIcon icon={faFacebook} size="4x" /></a>
-                                <a href="https://instagram.com" target="_blank">
-                                <FontAwesomeIcon icon={faInstagram} size="4x"/></a>
-                                <a href="https://twitter.com" target="_blank">
-                                <FontAwesomeIcon icon={faTwitter} size="4x"/></a>
-                            </Col>
-                        </Row>
-                    </div>
-                </footer>
+                <div className="container-fluid">
+                    <Row>
+                        <Col className="col-footer" sm={12} md={2}>
+                        </Col>
+                        <Col className="copyright" sm={12} md={7}>
+                            <p>Copyright © 2020-2021 Our LLC. All Rights Reserved.</p>
+                        </Col>
+                        <Col sm={12} md={3} className="footer-links">
+                            <a href="https://facebook.com" target="_blank">
+                            <FontAwesomeIcon icon={faFacebook} size="4x" /></a>
+                            <a href="https://instagram.com" target="_blank">
+                            <FontAwesomeIcon icon={faInstagram} size="4x"/></a>
+                            <a href="https://twitter.com" target="_blank">
+                            <FontAwesomeIcon icon={faTwitter} size="4x"/></a>
+                        </Col>
+                    </Row>
+                </div>
+            </footer>
 
         </div>
     );
