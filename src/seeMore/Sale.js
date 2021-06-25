@@ -64,6 +64,7 @@ componentDidMount(){
                      <h1>DJ Equipment</h1>
                      <br/>
                      <ItemCard itemArray={this.state.itemArray}/>
+                     {console.log(this.state.itemArray)}
                  </div> 
                  </Row>
                  <br/>

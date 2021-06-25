@@ -86,7 +86,7 @@ const ItemCard = (props) => {
                         <Col sm={12} lg={2}>
                         <div>
                         {/* <Link to="/cart"> */}
-                        <i className="btns" onClick={()=>(dispatch(add_item(itemArray.id)),dispatch(incCart()))}>{plusBtn}</i>
+                        <i className="btns" onClick={()=>(dispatch(add_item(itemArray)),dispatch(incCart()))}>{plusBtn}</i>
                         {/* </Link> */}
                         </div>
                         </Col>
